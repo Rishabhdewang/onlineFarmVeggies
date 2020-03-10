@@ -1,0 +1,139 @@
+<!-- Basic form layout section start -->
+<section id="horizontal-form-layouts">
+  <!-- <div class="row text-left">
+      <div class="col-sm-12">
+        <div class="content-header">Product</div>
+      </div>
+    </div> -->
+  <div class="row text-left">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header pb-2">
+          <h4 class="card-title" id="horz-layout-basic">Product</h4>
+          <p class="mb-0">This is the basic horizontal form with labels on left and form controls on right in one line.
+            Add <code>.form-horizontal</code> class to the form tag to have horizontal form styling. To define form
+            sections use <code>form-section</code> class with any heading tags.</p>
+        </div>
+        <div class="card-content">
+          <div class="px-3">
+            <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()" class="form form-horizontal">
+              <div class="form-body">
+                <h4 class="form-section">Add Product</h4>
+                <div class="form-group row">
+                  <label class="col-md-3 label-control" for="projectinput1">Product Name: </label>
+                  <div class="col-md-9">
+                    <input type="text" id="projectinput1" class="form-control" name="product_name" placeholder="Onion" formControlName="productName">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 label-control" for="projectinput2">Product Category: </label>
+                  <div class="col-md-9">
+                    <select (change)="selectCategory($event)" id="projectinput2" name="category" class="form-control">
+                      <option value="vegetable">Vegetable</option>
+                      <option value="fruit">Fruit</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div formArrayName="productPrices">
+                  <div  class="form-group row" *ngFor="let item of productPrices.controls; let pointIndex=index" [formGroupName]="pointIndex">
+                    <label class="col-md-3 label-control" for="projectinput3">Product Price: </label>
+                    <div class="col-md-3 mb-1">
+                      <input type="number" class="form-control" name="product_price"
+                        placeholder="Quantity" formControlName="quantity">
+                    </div>
+                    <div class="col-md-3 mb-1">
+                      <input type="number"  class="form-control" name="product_price"
+                        placeholder="Rate" formControlName="rate">
+                    </div>
+                    <div class="col-md-3 mb-1">
+                      <button type="button" class="btn btn-outline-danger" (click)="deleteProductPrices(pointIndex)">Delete </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-3"></div>
+                  <div class="col-md-9">
+                    <button type="button" class="btn btn-outline-primary" (click)="addProductPrices()">Add Price</button>
+                </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 label-control" for="projectinput5">Total Quantity:</label>
+                  <div class="col-md-3">
+                    <input type="text" id="projectinput5" class="form-control" name="quantity" placeholder="50 kg" formControlName="productTotalQuantity">
+                  </div>
+                </div>
+
+                <h4 class="form-section">Product Details</h4>
+
+                <div class="form-group row">
+                  <label class="col-md-3 label-control" for="projectinput6">About Product: </label>
+                  <div class="col-md-9">
+                    <input type="text" id="projectinput6" class="form-control" name="product_about" formControlName="productAbout">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-md-3 label-control" for="projectinput7">Product Benefits:<br><b>Within 255
+                      letters</b></label>
+                  <div class="col-md-9">
+                    <textarea type="text" id="projectinput7" rows="3" class="form-control"
+                      name="product_benefits" formControlName="productBenefits"></textarea>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-md-3 label-control" for="projectinput8">Product Storage & Usage: </label>
+                  <div class="col-md-9">
+                    <textarea type="text" id="projectinput8" rows="3" class="form-control"
+                      name="product_storage_usage" formControlName="productStorageAndUsage"></textarea>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-md-3 label-control">Product Image: </label>
+                  <div class="col-md-9">
+                    <div class="custom-file  mx-auto d-block">
+                      <input type="file" (change)="uploadFile($event)" class="custom-file-input" id="inputGroupFile01"
+                        formControlName="productImage" observeFiles>
+                      <label class="custom-file-label" id="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div formGroupName="productOtherInfo" class="form-group row">
+                  <label class="col-md-3 label-control" for="projectinput9">Other Product Info: </label>
+                  <div class="col-md-9 mb-2">
+                    <input id="projectinput9" rows="5" class="form-control" name="comment" placeholder="EAN Code" formControlName="eanCode">
+                  </div>
+                <!-- <div class="form-group row"> -->
+                  <div class="col-sm-3"></div>
+                  <div class="col-md-9 mb-2">
+                    <input id="projectinput10" rows="5" class="form-control" name="comment" placeholder="Best Before" formControlName="bestBefore">
+                  </div>
+
+                <!-- <div class="form-group row"> -->
+                  <div class="col-sm-3"></div>
+                  <div class="col-md-9 mb-2">
+                    <textarea id="projectinput11" rows="5" class="form-control" name="comment"
+                      placeholder="Sourced & Marketed By" formControlName="sourcedAndMarketed"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn btn-raised btn-warning mr-1">
+                  <i class="ft-x"></i> Cancel
+                </button>
+                <button type="submit" class="btn btn-raised btn-primary">
+                  <i class="fa fa-check-square-o"></i> Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- // Basic form layout section end -->

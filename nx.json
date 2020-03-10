@@ -1,0 +1,22 @@
+{
+  "npmScope": "online-farm-veggies",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "farmer": {
+      "tags": []
+    },
+    "farmer-e2e": {
+      "tags": [],
+      "implicitDependencies": ["farmer"]
+    }
+  }
+}

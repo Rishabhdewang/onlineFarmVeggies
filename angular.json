@@ -1,0 +1,154 @@
+{
+  "version": 1,
+  "projects": {
+    "farmer": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/farmer",
+      "sourceRoot": "apps/farmer/src",
+      "prefix": "online-farm-veggies",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/farmer",
+            "index": "apps/farmer/src/index.html",
+            "main": "apps/farmer/src/main.ts",
+            "polyfills": "apps/farmer/src/polyfills.ts",
+            "tsConfig": "apps/farmer/tsconfig.app.json",
+            "aot": true,
+            "assets": ["apps/farmer/src/favicon.ico", "apps/farmer/src/assets"],
+            "styles": [
+              "apps/farmer/src/styles.scss",
+              "node_modules/sweetalert2/dist/sweetalert2.min.css",
+              "apps/farmer/src/assets/css/wizard.css",
+              "apps/farmer/src/assets/css/quill.snow.css",
+              "apps/farmer/src/assets/css/quill.bubble.css",
+              "apps/farmer/src/assets/css/hopscotch.css",
+              "node_modules/angular-calendar/scss/angular-calendar.scss",
+              "node_modules/dragula/dist/dragula.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/@swimlane/ngx-datatable/release/index.css",
+              "node_modules/@swimlane/ngx-datatable/release/assets/icons.css",
+              "apps/farmer/src/assets/css/demo.css",
+              "apps/farmer/src/assets/sass/app.scss"
+            ],
+            "scripts": [
+              
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/farmer/src/environments/environment.ts",
+                  "with": "apps/farmer/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "farmer:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "farmer:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "farmer:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/farmer/tsconfig.app.json",
+              "apps/farmer/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/farmer/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/farmer/jest.config.js",
+            "tsConfig": "apps/farmer/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/farmer/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "farmer-e2e": {
+      "root": "apps/farmer-e2e",
+      "sourceRoot": "apps/farmer-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/farmer-e2e/cypress.json",
+            "tsConfig": "apps/farmer-e2e/tsconfig.e2e.json",
+            "devServerTarget": "farmer:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "farmer:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/farmer-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/farmer-e2e/**"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "farmer"
+}
