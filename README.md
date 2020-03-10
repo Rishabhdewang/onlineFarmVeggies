@@ -1,2 +1,0 @@
-# onlinefarmveggie
-Minor Project
