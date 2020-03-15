@@ -1,0 +1,87 @@
+<!-- Horizontal cards start -->
+<section id="horizontal-examples">
+  <div class="row text-left">
+    <div class="col-12 mt-3 mb-1">
+      <div class="content-header">Product Detail</div>
+      <!-- <p class="content-sub-header">Cards with horizontal image.</p> -->
+    </div>
+    <div class="col-12">
+        <a class="text-decoration-none" [routerLink]="['/farmer/dashboard/product-list']"> <button class="btn btn-raised btn-outline-dark">Back</button>
+        </a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+      <img src="assets/img/photos/banana.jpg" style="width: 22rem" alt="">
+    </div>
+    <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 mt-3">
+      <div class="align-self-center">
+        <div class="px-3">
+          <h4 class="card-title">{{product.productName}}</h4>
+          <h6>{{product.productCategory}}</h6>
+          <h3>Price Rate</h3>
+          <div class="row mt-2">
+            <div class="col">
+              <h4>Quantity</h4>
+            </div>
+            <div class="col">
+              <h4>Rate</h4>
+            </div>
+          </div>
+          <div class="row" *ngFor="let rate of product.productPrices">
+            <div class="col">{{rate.quantity}} g</div>
+            <div class="col"> Rs {{rate.rate}}</div>
+          </div>
+          <div class="row mt-5">
+            <div class="col">
+              <button class="btn btn-raised btn-warning">Update</button>
+            </div>
+            <div class="col">
+              <button class="btn btn-raised btn-danger">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">About</h5>
+        <p class="card-text">{{product.productDetail.productAbout}}</p>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Benefits</h5>
+        <p class="card-text">{{product.productDetail.productBenefits}}</p>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Storage & Usage</h5>
+        <p class="card-text">{{product.productDetail.productStorageAndUsage}}</p>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Other Product Info</h5>
+        <div class="row">
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">EAN Code :</div>
+          <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+            <p class="card-text">{{product.productDetail.otherProductInfo.eanCode}}</p>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">Best Before :</div>
+          <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+            <p class="card-text">{{product.productDetail.otherProductInfo.bestBefore}}</p>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">Sourced & Marketed By :</div>
+          <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+            <p class="card-text">{{product.productDetail.otherProductInfo.sourcedAndMarketed}}</p>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- // Horizontal cards end -->

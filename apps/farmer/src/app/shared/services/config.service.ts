@@ -23,12 +23,12 @@ export class ConfigService {
         sidebar: {
           collapsed: false, //options: true, false
           size: "sidebar-lg", // Options: 'sidebar-lg', 'sidebar-md', 'sidebar-sm'
-          backgroundColor: "man-of-steel", // Options: 'black', 'pomegranate', 'king-yna', 'ibiza-sunset', 'flickr', 'purple-bliss', 'man-of-steel', 'purple-love'
+          backgroundColor: "purple-bliss", // Options: 'black', 'pomegranate', 'king-yna', 'ibiza-sunset', 'flickr', 'purple-bliss', 'man-of-steel', 'purple-love'
 
           /* If you want transparent layout add any of the following mentioned classes to backgroundColor of sidebar option :
             bg-glass-1, bg-glass-2, bg-glass-3, bg-glass-4, bg-hibiscus, bg-purple-pizzaz, bg-blue-lagoon, bg-electric-viloet, bg-protage, bg-tundora
           */
-          backgroundImage: true, // Options: true, false | Set true to show background image
+          backgroundImage: false, // Options: true, false | Set true to show background image
           backgroundImageURL: "assets/img/sidebar-bg/01.jpg"
         }
       }

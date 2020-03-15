@@ -38,7 +38,7 @@ export class VerifyOtpComponent implements OnInit {
           localStorage.setItem("token", success.headers.get("Authorization"));
           console.log(localStorage.getItem('token'));
 
-          this.router.navigateByUrl(`/auth/resetPassword`);
+          this.router.navigateByUrl(`/farmer/auth/resetPassword`);
           Swal.fire("Verified","OTP is Verified","success");
           // alertFunctions.typeSuccess();
           this.loader.stop();

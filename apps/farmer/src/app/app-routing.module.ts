@@ -11,12 +11,12 @@ import { AuthGuard } from './shared/auth/auth-guard.service';
 
 const appRoutes: Routes = [
   {
-    path: '',
+    path: 'farmer',
     redirectTo: 'dashboard',
     pathMatch: 'full',
   },
-  { path: '', component: FullLayoutComponent, data: { title: 'full Views' }, children: Full_ROUTES, canActivate : [AuthGuard] },
-  { path: '', component: ContentLayoutComponent, data: { title: 'content Views' }, children: CONTENT_ROUTES },
+  { path: 'farmer', component: FullLayoutComponent, data: { title: 'full Views' }, children: Full_ROUTES, canActivate : [AuthGuard] },
+  { path: 'farmer', component: ContentLayoutComponent, data: { title: 'content Views' }, children: CONTENT_ROUTES },
   {
     path: '**',
     redirectTo: 'pages/error'

@@ -32,6 +32,7 @@ export class ErrorHandlerService {
                 `body was: ${error.error.message}`
             );
             errorMessage = error.error.message || error.message;
+            Swal.fire("Error",errorMessage,"error");
         }
         return throwError(error);
     }
@@ -42,7 +43,7 @@ export class ErrorHandlerService {
         //     severity: 'error',
         //     summary: `${error.error.message}`
         // });
-        Swal.fire("Error",error,"error");
+        Swal.fire("Error",error.error.message,"error");
         // if verification link is not valid
         if (
             error.error.message ===
@@ -57,6 +58,6 @@ export class ErrorHandlerService {
 
     redirectToLogin() {
         localStorage.removeItem('token');
-        this.router.navigateByUrl(`/auth/login`);
+        this.router.navigateByUrl(`/farmer/auth/login`);
     }
 }

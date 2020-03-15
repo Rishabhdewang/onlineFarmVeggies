@@ -35,7 +35,7 @@ export class AuthService {
 
   logout() {   
     if (localStorage.removeItem('token') == null) {
-      this.router.navigate(['auth/login']);
+      this.router.navigate(['/farmer/auth/login']);
     }
   }
 
@@ -49,13 +49,6 @@ export class AuthService {
     return (authToken !== null) ? true : false;
   }
 
-  forgotPassword(data){
-    return this.http.post(this.base_url + "ForgotFarmerPassword", data, { observe: "response" }).pipe(
-      retry(3),
-      catchError(this.errorHandler.handleError)
-    );
-  }
-
   verifyotp(data){
     return this.http.post(this.base_url + "farmerVerifyOTP", data, { observe: "response" }).pipe(
       retry(3),
@@ -65,6 +58,26 @@ export class AuthService {
 
   resetPassword(data){
     return this.http.post(this.base_url + "ResetFarmerPassword", data, { observe: "response" }).pipe(
+      retry(3),
+      catchError(this.errorHandler.handleError)
+    );
+  }
+
+  checkOldPassword(data){
+    return this.http.post(this.base_url + "checkOldPassword", data, { observe: "response" }).pipe(
+      retry(3),
+      catchError(this.errorHandler.handleError)
+    );
+  }
+
+  changePassword(data){
+    return this.http.post(this.base_url + "changePassword", data, { observe: "response" }).pipe(
+      retry(3),
+      catchError(this.errorHandler.handleError)
+    );
+  }
+  forgotPassword(data){
+    return this.http.post(this.base_url + "forgotPassword",data,{observe : "response"}).pipe(
       retry(3),
       catchError(this.errorHandler.handleError)
     );

@@ -43,9 +43,9 @@ export class LoginComponent implements OnInit {
           // console.log("this is success: " + JSON.stringify(success));
 
           localStorage.setItem("token", success.headers.get("Authorization"));
-          console.log(localStorage.getItem('token'));
+          // console.log(localStorage.getItem('token'));
 
-          this.router.navigateByUrl(`/dashboard/dashboard`);
+          this.router.navigateByUrl(`/farmer/dashboard/dashboard`);
           Swal.fire("Logged In","Welcome to Dashbord","success");
           // alertFunctions.typeSuccess();
           this.loader.stop();

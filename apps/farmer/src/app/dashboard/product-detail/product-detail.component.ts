@@ -1,42 +1,44 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
 import { ProductService } from '../../shared/services/product.service';
 import   Swal from "sweetalert2";
-import { Router } from "@angular/router";
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 
-
 @Component({
-  selector: 'online-farm-veggies-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss']
+  selector: 'online-farm-veggies-product-detail',
+  templateUrl: './product-detail.component.html',
+  styleUrls: ['./product-detail.component.scss']
 })
-export class ProductListComponent implements OnInit {
-  // rows = [];
-  products : [];
-  p: number = 1;
-  searchString: string;
+export class ProductDetailComponent implements OnInit {
+  productId : number;
+  product;
   constructor(
+    private location:Location,
     private productService : ProductService,
     private router : Router,
-    private loader : NgxUiLoaderService
-  ) { 
-    // this.rows = data;
-  }
+    private loader : NgxUiLoaderService,
+    private activatedRoute:ActivatedRoute
+  ) {
+    // this.productId = this.router.getCurrentNavigation().extras.state.id;
+    this.activatedRoute.params.subscribe( params => this.productId = params.id );
+   }
 
   ngOnInit(): void {
-    this.productsList();
+    this.productDetail()
   }
 
-  productsList(){
-      this.loader.start();
-      this.productService.products().subscribe(
+  productDetail(){
+    if(this.productId){
+    this.loader.start();
+      this.productService.productDetail(this.productId).subscribe(
         (success: any) => {
           // console.log("this is success: " + JSON.stringify(success));
 
           // localStorage.setItem("token", success.headers.get("Authorization"));
           // console.log(localStorage.getItem('token'));
           console.log(success.body.data);
-          this.products = success.body.data;
+          this.product = success.body.data[0];
           // this.router.navigateByUrl(`/dashboard/product`);
           // Swal.fire("Product","Welcome to Dashbord","success");
           // alertFunctions.typeSuccess();
@@ -48,5 +50,6 @@ export class ProductListComponent implements OnInit {
           this.loader.stop();
         }
       );
-    }
+  }
+}
 }

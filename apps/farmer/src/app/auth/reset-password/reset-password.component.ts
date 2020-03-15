@@ -43,7 +43,7 @@ export class ResetPasswordComponent implements OnInit {
             // localStorage.setItem("token", success.headers.get("Authorization"));
             // console.log(localStorage.getItem('token'));
   
-            this.router.navigateByUrl(`/auth/login`);
+            this.router.navigateByUrl(`/farmer/auth/login`);
             Swal.fire("Password Reset","Now try to login","success");
             // alertFunctions.typeSuccess();
             this.loader.stop();

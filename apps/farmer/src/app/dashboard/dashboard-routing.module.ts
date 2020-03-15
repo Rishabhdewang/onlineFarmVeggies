@@ -5,6 +5,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { UserProfileComponent } from "./user-profile/user-profile.component";
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 
 const routes: Routes = [
@@ -44,6 +45,13 @@ const routes: Routes = [
         component : ChangePasswordComponent,
         data :{
           title : "Change Password"
+        }
+      },
+      {
+        path : "productDetail/:id",
+        component : ProductDetailComponent,
+        data:{
+          title : "Product Detail"
         }
       }
     ]

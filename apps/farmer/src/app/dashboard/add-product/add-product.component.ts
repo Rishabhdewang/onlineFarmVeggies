@@ -16,6 +16,8 @@ export class AddProductComponent implements OnInit {
   isSubmitted :boolean = false;
   selectedCategory : string;
   image : string;
+  categories = ["Vegetable","Fruits"];
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -26,18 +28,20 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.addProductForm = this.fb.group({
-      productName : [],
-      productCategory : [],
+      productName : [""],
+      productCategory : [""],
       productPrices : this.fb.array([]),
-      productTotalQuantity : [],
-      productAbout : [],
-      productBenefits : [],
-      productStorageAndUsage : [],
-      productOtherInfo : this.fb.group({
-        eanCode: [""],
-        bestBefore: [""],
-        sourcedAndMarketed: [""]
-      }),
+      // productTotalQuantity : [""],
+      productDetail : this.fb.group({
+        productAbout : [""],
+        productBenefits : [""],
+        productStorageAndUsage : [""],
+        otherProductInfo : this.fb.group({
+          eanCode: [""],
+          bestBefore: [""],
+          sourcedAndMarketed: [""]
+        })
+      })
     })
   }
 
@@ -57,14 +61,13 @@ export class AddProductComponent implements OnInit {
     label.innerHTML = this.image;
   }
 
-  selectCategory(event){
-    this.selectedCategory = event.target.value;
-    console.log(this.selectedCategory);
-  }
+  // selectCategory(event){
+  //   this.selectedCategory = event.target.value;
+  //   console.log(this.selectedCategory);
+  // }
 
   onSubmit(){
     console.log(this.addProductForm.value);
-    this.addProductForm.value.productCategory = this.selectedCategory;
     if(this.addProductForm.valid){
       let addProductData = this.addProductForm.value;
       this.loader.start();
@@ -72,18 +75,18 @@ export class AddProductComponent implements OnInit {
         (success: any) => {
           // console.log("this is success: " + JSON.stringify(success));
 
-          localStorage.setItem("token", success.headers.get("Authorization"));
-          console.log(localStorage.getItem('token'));
+          // localStorage.setItem("token", success.headers.get("Authorization"));
+          // console.log(localStorage.getItem('token'));
 
           this.router.navigateByUrl(`/dashboard/add-product`);
-          Swal.fire("Logged In","Welcome to Dashbord","success");
+          Swal.fire("Prodect Added Successfully","","success");
           // alertFunctions.typeSuccess();
           this.loader.stop();
         },
         error => {
           console.log(error);
 
-          Swal.fire("Opps... Login Failed","Please provide correct credential","error");
+          Swal.fire("Enter Complete Information","","error");
           this.loader.stop();
         }
       );

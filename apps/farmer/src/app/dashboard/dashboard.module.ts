@@ -15,6 +15,11 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductService } from "./../shared/services/product.service";
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProfileService } from './../shared/services/profile.service';
+
+
 
 @NgModule({
     imports: [
@@ -25,15 +30,17 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
         MatchHeightModule,
         FormsModule,
         ReactiveFormsModule,
+        NgxPaginationModule
     ],
     exports: [],
     declarations: [
     ProductListComponent,
     AddProductComponent,
+    ProductDetailComponent,
     UserProfileComponent,
     DashboardComponent,
     ChangePasswordComponent
     ],
-    providers: [ProductService],
+    providers: [ProductService,ProfileService],
 })
 export class DashboardModule { }

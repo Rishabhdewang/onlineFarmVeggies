@@ -13,6 +13,7 @@ import { ConfigService } from '../services/config.service';
 })
 export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   currentLang = "en";
+  mode = "Light";
   toggleClass = "ft-maximize";
   placement = "bottom-right";
   public isCollapsed = true;

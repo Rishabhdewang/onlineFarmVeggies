@@ -1,1 +1,138 @@
-<p>user-profile works!</p>
+<!-- Horizontal cards start -->
+<section id="horizontal-examples">
+  <div class="row text-left">
+    <div class="col-12 mt-3 mb-1">
+      <div class="content-header">User Profile</div>
+      <!-- <p class="content-sub-header">Cards with horizontal image.</p> -->
+    </div>
+  </div>
+
+  <div class="row text-left">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+      <div class="card horizontal">
+        <div class="card-content d-flex justify-content-between">
+          <div class="card-img col-xl-4 col-lg-4 col-md-6 col-sm-12">
+            <img src="assets/img/portrait/avatars/avatar-04.png" style="height: 300px;" alt="Farmer Image">
+          </div>
+          <div class="card-stacked align-self-center">
+            <div class="px-3">
+              <h4 class="card-title">{{farmer.name}}</h4>
+              <h6>{{farmer.email}}</h6>
+              <h6>{{farmer.mobile_no}}</h6>
+              <div class="row mt-2">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                  <h4>{{farmer.address.address1}},{{farmer.address.city}},{{farmer.address.state}}</h4>
+                  <h4>{{farmer.address.pinCode}}</h4>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col">
+                  <button class="btn btn-raised btn-warning" (click)="showForm()">Update</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template [ngIf]="change">
+  <div class="row text-left">
+    <div class="col-sm-12">
+      <div class="content-header">Update Forms</div>
+    </div>
+  </div>
+  <div class="row text-left">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header pb-2">
+          <h4 class="card-title" id="basic-layout-colored-form-control">User Profile</h4>
+          <p class="mb-0">You can always change the border color of the form controls using <code>border-*</code>
+            class. In this example we have user <code>border-primary</code> class for form controls. Form action
+            buttons are on the bottom right position.</p>
+        </div>
+        <div class="card-content">
+          <div class="px-3">
+            <form [formGroup]="updateForm" (ngSubmit)="onSubmit()" class="form">
+              <div class="form-body">
+                <h4 class="form-section"><i class="ft-info"></i> About User</h4>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="userinput1">Farmer Name</label>
+                      <input type="text" id="userinput1" class="form-control border-primary" name="name" formControlName="name">
+                    </div>
+                  </div>
+                </div>
+                <h4 class="form-section"><i class="ft-map-pin"></i> Address Info</h4>
+                <div formGroupName="address" class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="userinput3">Address :</label>
+                      <input class="form-control border-primary" type="text" id="userinput3" formControlName="address1">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="userinput4">City :</label>
+                      <input class="form-control border-primary" id="userinput4" type="city" formControlName="city">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="userinput2">State :</label>
+                      <input class="form-control border-primary" id="userinput2" type="state" formControlName="state">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="userinput9">Pin Code :</label>
+                      <input class="form-control border-primary" id="userinput9" type="zipcode" formControlName="pinCode">
+                    </div>
+                  </div>
+                </div>
+                <h4 class="form-section"><i class="ft-mail"></i> Contact Info & Bio</h4>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="userinput5">Email</label>
+                      <input class="form-control border-primary" type="email" id="userinput5" formControlName="email">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="userinput7">Contact Number</label>
+                      <input class="form-control border-primary" id="userinput7" type="contact" formControlName="mobile_no">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-md-3 label-control">Profile Image: </label>
+                  <div class="col-md-9">
+                    <div class="custom-file  mx-auto d-block">
+                      <input type="file" (change)="uploadFile($event)" class="custom-file-input" id="profile_image" name="profile_image"
+                      formControlName="profile_pic" observeFiles>
+                      <label class="custom-file-label" id="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-actions right">
+                <button type="reset" class="btn btn-raised btn-warning mr-1">
+                  <i class="ft-x"></i> Cancel
+                </button>
+                <button type="submit" class="btn btn-raised btn-primary">
+                  <i class="fa fa-check-square-o"></i> Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+</section>
+<!-- // Horizontal cards end -->

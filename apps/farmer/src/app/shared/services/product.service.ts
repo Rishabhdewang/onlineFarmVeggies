@@ -34,4 +34,11 @@ export class ProductService {
       );
     }
 
+    productDetail(data){
+      return this.http.get(this.base_url + "product/"+data, { observe: "response" }).pipe(
+        retry(3),
+        catchError(this.errorHandler.handleError)
+      );
+    }
+
 }

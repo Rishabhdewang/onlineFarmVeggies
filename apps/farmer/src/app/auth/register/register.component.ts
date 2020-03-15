@@ -49,10 +49,10 @@ export class RegisterComponent implements OnInit {
         (success: any) => {
           // console.log("this is success: " + JSON.stringify(success));
 
-          localStorage.setItem("token", success.headers.get("Authorization"));
-          console.log(localStorage.getItem('token'));
+          // localStorage.setItem("token", success.headers.get("Authorization"));
+          // console.log(localStorage.getItem('token'));
 
-          this.router.navigateByUrl(`/auth/login`);
+          this.router.navigateByUrl(`/farmer/auth/login`);
           Swal.fire("Account Registered","Please login now","success");
           // alertFunctions.typeSuccess();
           this.loader.stop();

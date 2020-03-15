@@ -28,4 +28,11 @@ export class ProfileService {
       );
     }
 
+    updateFarmer(data){
+      return this.http.put(this.base_url + "farmer",data, { observe: "response" }).pipe(
+        retry(3),
+        catchError(this.errorHandler.handleError)
+      );
+    }
+
 }

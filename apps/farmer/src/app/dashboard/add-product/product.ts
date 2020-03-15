@@ -3,15 +3,20 @@ export class Product {
     productCategory : string
     productPrices : Prices[]
     productQuantity : number
-    productAbout : string
-    productBenefits : string
-    productStorageAndUsage : string
-    productOtherInfo : OtherInfo[]
+    productDetail : ProductDetail[]
+    
 }
 
 export class Prices {
     quantity : number
     rate : number
+}
+
+export class ProductDetail {
+    productAbout : string
+    productBenefits : string
+    productStorageAndUsage : string
+    otherProductInfo : OtherInfo[]
 }
 
 export class OtherInfo {

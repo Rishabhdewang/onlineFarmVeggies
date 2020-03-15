@@ -4,16 +4,16 @@ import { RouteInfo } from './sidebar.metadata';
 export const ROUTES: RouteInfo[] = [
 
     {
-        path: '/dashboard/dashboard', title: 'Dashboard', icon: 'ft-home', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+        path: '/farmer/dashboard/dashboard', title: 'Dashboard', icon: 'ft-home', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
     },
-    { path: '/dashboard/product-list', title: 'Products List', icon: 'ft-list', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-    { path: '/dashboard/add-product', title: 'Add Product', icon: 'ft-plus', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-    { path: '/dashboard/setting', title: 'Setting', icon: 'ft-settings', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+    { path: '/farmer/dashboard/product-list', title: 'Products List', icon: 'ft-list', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+    { path: '/farmer/dashboard/add-product', title: 'Add Product', icon: 'ft-plus', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+    { path: '/farmer/dashboard/setting', title: 'Setting', icon: 'ft-settings', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
     { path: '', title: 'Account', icon: 'ft-user', class: 'has-sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
-        { path: '/dashboard/user-profile', title: 'User Profile', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-        { path: '/dashboard/change-password', title: 'Change Password', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+        { path: '/farmer/dashboard/user-profile', title: 'User Profile', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+        { path: '/farmer/dashboard/change-password', title: 'Change Password', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
     ] },
-    { path: '/dashboard/help', title: 'Support', icon: 'ft-help-circle', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+    { path: '/farmer/dashboard/help', title: 'Support', icon: 'ft-help-circle', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
     // { path: '/colorpalettes', title: 'Color Palette', icon: 'ft-droplet', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
     // { path: '/inbox', title: 'Inbox', icon: 'ft-mail', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
     // { path: '/chat', title: 'Chat', icon: 'ft-message-square', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
