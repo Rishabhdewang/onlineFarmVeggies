@@ -17,6 +17,13 @@
     "farmer-e2e": {
       "tags": [],
       "implicitDependencies": ["farmer"]
+    },
+    "admin": {
+      "tags": []
+    },
+    "admin-e2e": {
+      "tags": [],
+      "implicitDependencies": ["admin"]
     }
   }
 }

@@ -1,6 +1,6 @@
 import {
   Component,
-  OnInit,ElementRef, Input 
+  OnInit,ElementRef, Input
 } from '@angular/core';
 import {
   FormBuilder,
@@ -22,17 +22,13 @@ import {
 import {
   NgxUiLoaderService
 } from 'ngx-ui-loader';
-import {  FileUploader } from 'ng2-file-upload/ng2-file-upload';
 
-const URL = 'http://localhost:8000/api/farmer';
 @Component({
   selector: 'online-farm-veggies-user-profile',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
-
-  public uploader:FileUploader = new FileUploader({url: URL, itemAlias: 'profile_image'});
 
   farmer;
   image;
@@ -51,7 +47,7 @@ export class UserProfileComponent implements OnInit {
       name: [""],
       email: [""],
       mobile_no: [""],
-      profile_pic : File,
+      profile_pic : [""],
       address: this.fb.group({
         address1: [""],
         city: [""],
@@ -59,10 +55,6 @@ export class UserProfileComponent implements OnInit {
         pinCode: [""],
       })
     });
-    this.uploader.onAfterAddingFile = (file)=> { file.withCredentials = false; };
-    this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
-      console.log("Image Upload:uploaded:", item, status, response);
-    };
     this.getFarmer()
   }
 
@@ -104,16 +96,17 @@ export class UserProfileComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.updateForm.value);
-    let inputEl: HTMLInputElement = this.el.nativeElement.querySelector('#profile_image');
-    let fileCount: number = inputEl.files.length;
-    // console.log(inputEl.files);
-    fileCount > 0 ? this.updateForm.value.profile_pic = this.image : "";
+    console.log(JSON.stringify(this.updateForm.value));
+    let formData: FormData = new FormData();
+    formData.append("name", JSON.stringify(this.updateForm.value));
+    formData.append("profile_pic",this.image,this.image.name);
+    console.log(formData);
+    
     if(this.updateForm.valid){
       let updateData = this.updateForm.value;
-      console.log(updateData)
+      // console.log(updateData)
       this.loader.start();
-      this.profileService.updateFarmer(updateData).subscribe(
+      this.profileService.updateFarmer(formData).subscribe(
       (success: any) => {
         // console.log("this is success: " + JSON.stringify(success));
 

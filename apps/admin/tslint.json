@@ -1,0 +1,7 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [true, "attribute", "onlineFarmVeggies", "camelCase"],
+    "component-selector": [true, "element", "online-farm-veggies", "kebab-case"]
+  }
+}

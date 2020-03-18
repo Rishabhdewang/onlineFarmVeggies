@@ -15,7 +15,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductService } from "./../shared/services/product.service";
 import { ChangePasswordComponent } from './change-password/change-password.component';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProfileService } from './../shared/services/profile.service';
 
