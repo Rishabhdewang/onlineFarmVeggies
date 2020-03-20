@@ -10,7 +10,7 @@ import { catchError,retry,map } from 'rxjs/operators';
 
 export class ProfileService {
 
-    base_url: string;
+    farmer_base_url: string;
     headers = new HttpHeaders().set('Content-Type', 'application/json');
     constructor(
       private http: HttpClient,
@@ -18,18 +18,18 @@ export class ProfileService {
       // private bs: BaseService,
       private errorHandler: ErrorHandlerService
     ) {
-      this.base_url = 'http://127.0.0.1:8000/api/'
+      this.farmer_base_url = 'http://127.0.0.1:8000/api/farmer'
     }
   
     getFarmer() {
-      return this.http.get(this.base_url + "farmer", { observe: "response" }).pipe(
+      return this.http.get(this.farmer_base_url + "farmer", { observe: "response" }).pipe(
         retry(3),
         catchError(this.errorHandler.handleError)
       );
     }
 
     updateFarmer(data){
-      return this.http.put(this.base_url + "farmer",data, { observe: "response" }).pipe(
+      return this.http.put(this.farmer_base_url + "farmer",data, { observe: "response" }).pipe(
         retry(3),
         catchError(this.errorHandler.handleError)
       );

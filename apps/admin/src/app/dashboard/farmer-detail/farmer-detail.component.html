@@ -1,0 +1,39 @@
+<!-- Horizontal cards start -->
+<section id="horizontal-examples">
+    <div class="row text-left">
+      <div class="col-12 mt-3 mb-1">
+        <div class="content-header">Farmer Detail</div>
+        <!-- <p class="content-sub-header">Cards with horizontal image.</p> -->
+      </div>
+      <div class="col-12">
+          <a class="text-decoration-none" [routerLink]="['/admin/dashboard/farmers']"> <button class="btn btn-raised btn-outline-dark">Back</button>
+          </a>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12" style="text-align: center;">
+        <img src="{{farmer.profile_pic}}" style="width: 22rem" alt="">
+      </div>
+      <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 mt-3">
+        <div class="align-self-center">
+          <div class="px-3">
+            <h4 class="card-title">{{farmer.name}}</h4>
+            <h6>{{farmer.email}}</h6>
+            <p>{{farmer.address.address1}}, {{farmer.address.city}} ({{farmer.address.state}}) {{farmer.address.pinCode}}</p>
+            <div class="row mt-5">
+              <div class="col">
+                <button class="btn btn-raised btn-warning">Update</button>
+              <!-- </div>
+              <div class="col"> -->
+                <button *ngIf="!farmer.isAdminVerified" class="btn btn-raised btn-success ml-2" (click)="changeVerification(true)">Verify</button>
+                <button *ngIf="farmer.isAdminVerified" class="btn btn-raised btn-danger ml-2" (click)="changeVerification(false)">Unverify</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- // Horizontal cards end -->
+  

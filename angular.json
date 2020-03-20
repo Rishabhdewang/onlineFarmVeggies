@@ -21,7 +21,9 @@
             "polyfills": "apps/farmer/src/polyfills.ts",
             "tsConfig": "apps/farmer/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/farmer/src/favicon.ico", "apps/farmer/src/assets"],
+            "assets": [
+              "apps/farmer/src/favicon.ico", 
+              "apps/farmer/src/assets"],
             "styles": [
               "apps/farmer/src/styles.scss",
               "node_modules/sweetalert2/dist/sweetalert2.min.css",
@@ -155,8 +157,25 @@
             "polyfills": "apps/admin/src/polyfills.ts",
             "tsConfig": "apps/admin/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/admin/src/favicon.ico", "apps/admin/src/assets"],
-            "styles": ["apps/admin/src/styles.scss"],
+            "assets": [
+              "apps/admin/src/favicon.ico", 
+              "apps/admin/src/assets"
+            ],
+            "styles": [
+              "apps/admin/src/styles.scss",
+              "node_modules/sweetalert2/dist/sweetalert2.min.css",
+              "node_modules/angular-calendar/scss/angular-calendar.scss",
+              "node_modules/dragula/dist/dragula.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/@swimlane/ngx-datatable/release/index.css",
+              "node_modules/@swimlane/ngx-datatable/release/assets/icons.css",
+              "apps/admin/src/assets/css/wizard.css",
+              "apps/admin/src/assets/css/quill.snow.css",
+              "apps/admin/src/assets/css/quill.bubble.css",
+              "apps/admin/src/assets/css/hopscotch.css",
+              "apps/admin/src/assets/css/demo.css",
+              "apps/admin/src/assets/sass/app.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -252,6 +271,38 @@
             "tsConfig": ["apps/admin-e2e/tsconfig.e2e.json"],
             "exclude": ["**/node_modules/**", "!apps/admin-e2e/**"]
           }
+        }
+      }
+    },
+    "ui": {
+      "projectType": "library",
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
+      "prefix": "online-farm-veggies",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ui/tsconfig.lib.json",
+              "libs/ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ui/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui/jest.config.js",
+            "tsConfig": "libs/ui/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
         }
       }
     }

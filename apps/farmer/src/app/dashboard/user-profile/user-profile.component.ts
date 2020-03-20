@@ -103,7 +103,7 @@ export class UserProfileComponent implements OnInit {
     console.log(formData);
     
     if(this.updateForm.valid){
-      let updateData = this.updateForm.value;
+      // let updateData = this.updateForm.value;
       // console.log(updateData)
       this.loader.start();
       this.profileService.updateFarmer(formData).subscribe(

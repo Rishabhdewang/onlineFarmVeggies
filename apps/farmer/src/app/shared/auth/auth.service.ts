@@ -8,7 +8,7 @@ import { catchError,retry,map } from 'rxjs/operators';
 @Injectable()
 export class AuthService {
   // token: string;
-  base_url: string;
+  farmer_base_url: string;
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(
     private http: HttpClient,
@@ -16,18 +16,18 @@ export class AuthService {
     // private bs: BaseService,
     private errorHandler: ErrorHandlerService
   ) {
-    this.base_url = 'http://127.0.0.1:8000/api/'
+    this.farmer_base_url = 'http://127.0.0.1:8000/api/farmer'
   }
 
   register(data) {
-    return this.http.post(this.base_url + "registerFarmer", data, { observe: "response" }).pipe(
+    return this.http.post(this.farmer_base_url + "registerFarmer", data, { observe: "response" }).pipe(
       retry(3),
       catchError(this.errorHandler.handleError)
     );
   }
 
   login(data) {
-    return this.http.post(this.base_url + "farmerLogin", data, { observe: "response" }).pipe(
+    return this.http.post(this.farmer_base_url + "farmerLogin", data, { observe: "response" }).pipe(
       retry(3),
       catchError(this.errorHandler.handleError)
     );
@@ -50,34 +50,34 @@ export class AuthService {
   }
 
   verifyotp(data){
-    return this.http.post(this.base_url + "farmerVerifyOTP", data, { observe: "response" }).pipe(
+    return this.http.post(this.farmer_base_url + "farmerVerifyOTP", data, { observe: "response" }).pipe(
       retry(3),
       catchError(this.errorHandler.handleError)
     );
   }
 
   resetPassword(data){
-    return this.http.post(this.base_url + "ResetFarmerPassword", data, { observe: "response" }).pipe(
+    return this.http.post(this.farmer_base_url + "ResetFarmerPassword", data, { observe: "response" }).pipe(
       retry(3),
       catchError(this.errorHandler.handleError)
     );
   }
 
   checkOldPassword(data){
-    return this.http.post(this.base_url + "checkOldPassword", data, { observe: "response" }).pipe(
+    return this.http.post(this.farmer_base_url + "checkOldPassword", data, { observe: "response" }).pipe(
       retry(3),
       catchError(this.errorHandler.handleError)
     );
   }
 
   changePassword(data){
-    return this.http.post(this.base_url + "changePassword", data, { observe: "response" }).pipe(
+    return this.http.post(this.farmer_base_url + "changePassword", data, { observe: "response" }).pipe(
       retry(3),
       catchError(this.errorHandler.handleError)
     );
   }
   forgotPassword(data){
-    return this.http.post(this.base_url + "forgotPassword",data,{observe : "response"}).pipe(
+    return this.http.post(this.farmer_base_url + "forgotPassword",data,{observe : "response"}).pipe(
       retry(3),
       catchError(this.errorHandler.handleError)
     );

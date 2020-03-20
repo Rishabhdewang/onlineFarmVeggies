@@ -1,0 +1,19 @@
+<section>
+    <div class="row">
+        <div *ngFor="let farmer of farmers"  class="col-xl-4 col-lg-3 col-md-6 col-sm-12">
+            <div class="card"  *ngIf="true" style="border-top-left-radius: 10%; border-top-right-radius: 10%;" >
+                <img class="card-img-top" style="border-top-left-radius: 10%; border-top-right-radius: 10%;" src="{{farmer.profile_pic}}" alt="">
+                <div class="card-body">
+                    <span *ngIf="farmer.isAdminVerified" class="badge badge-primary mb-2">Verified</span>
+                    <span *ngIf="!farmer.isAdminVerified" class="badge badge-danger mb-2">Not Verified</span>
+                    <h5 class="card-title">{{farmer.name}}</h5>
+                    <p>{{farmer.email}}</p>
+                    <a class="text-decoration-none" [routerLink]="['/admin/dashboard/farmer-detail',farmer.id]">
+                        <button class="btn btn-outline-dark float-right">More Detail</button>
+                      </a>
+                    <!-- <p class="card-text">{{farmer.address}}</p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
