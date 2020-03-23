@@ -6,13 +6,20 @@ export const ROUTES: RouteInfo[] = [
     {
         path: '/admin/dashboard/dashboard', title: 'Dashboard', icon: 'ft-home', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
     },
+
     { path: '/admin/dashboard/farmers', title: 'Farmers', icon: 'ft-list', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-    { path: '/admin/dashboard/category', title: 'Add Category', icon: 'ft-plus', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+
+    { path: '/admin/dashboard/customer', title: 'Customer', icon: 'ft-users', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+
+    { path: '/admin/dashboard/category', title: 'Category', icon: 'ft-plus', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+
     { path: '/admin/dashboard/setting', title: 'Setting', icon: 'ft-settings', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+
     { path: '', title: 'Account', icon: 'ft-user', class: 'has-sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
         { path: '/admin/dashboard/user-profile', title: 'User Profile', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
         { path: '/admin/dashboard/change-password', title: 'Change Password', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
     ] },
+
     { path: '/farmer/dashboard/help', title: 'Support', icon: 'ft-help-circle', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
     // { path: '/colorpalettes', title: 'Color Palette', icon: 'ft-droplet', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
     // { path: '/inbox', title: 'Inbox', icon: 'ft-mail', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },

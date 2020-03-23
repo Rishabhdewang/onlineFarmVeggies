@@ -1,1 +1,83 @@
-<p>category works!</p>
+<!-- Basic form layout section start -->
+<section id="horizontal-form-layouts">
+    <!-- <div class="row text-left">
+      <div class="col-sm-12">
+        <div class="content-header">Category</div>
+      </div>
+    </div>  -->
+    <div class="row text-left">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header pb-2">
+            <h4 class="card-title" id="horz-layout-card-center">Add Category</h4>
+            <p class="mb-0">Add <code>category</code> of different vegetables and fruits.</p>
+          </div>
+          <div class="card-content">
+            <div class="px-3">
+              <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()" class="form form-horizontal">
+                <div class="form-body">
+                  <div class="form-group row">
+                    <label class="col-md-5 label-control" for="eventRegInput1">Category Name: </label>
+                    <div class="col-md-7">
+                      <input type="text" id="eventRegInput1" class="form-control" name="fullname" formControlName="categoryName">
+                    </div>
+                  </div>
+  
+                <div class="form-actions center">
+                  <button type="reset" class="btn btn-raised btn-warning mr-1">
+                    <i class="ft-x"></i> Cancel
+                  </button>
+                  <button type="submit" class="btn btn-raised btn-primary">
+                    <i class="fa fa-check-square-o"></i> Save
+                  </button>
+                </div>
+            </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- // Basic form layout section end -->
+
+<!--Extended Table starts-->
+<div class="row text-left">
+    <div class="col-12">
+      <div class="content-header">Categories Tables</div>
+      <p class="content-sub-header">Tables with vegetables and fruits categories.</p>
+    </div>
+  </div>
+  <section id="extended">
+    <div class="row text-left">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Categories</h4>
+          </div>
+          <div class="card-content">
+            <div class="card-body">
+              <table class="table table-responsive-md text-center">
+                <thead>
+                  <tr>
+                    <th>Category Name</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let category of categories">
+                    <td>{{category.categoryName}}</td>
+                    <td>
+                      <a type="button" (click)="deleteCategory(category.id)" class="danger p-0" data-original-title="" title="">
+                        <i class="ft-x font-medium-3 mr-2"></i>
+                      </a>
+                    </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>    
+    </div>
+  </section>

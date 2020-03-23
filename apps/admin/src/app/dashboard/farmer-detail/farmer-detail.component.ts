@@ -32,9 +32,11 @@ export class FarmerDetailComponent implements OnInit {
   changeVerification(status){
     if(this.farmerId){
       let formData = {
-        "id" : this.farmerId,
-        "status" : status
+        "id" : Number(this.farmerId),
+        "name" : this.farmer.name,
+        "isAdminVerified" : status
       }
+      // formData = JSON.stringify(formData);
       console.log(formData);
       
       this.loader.start();

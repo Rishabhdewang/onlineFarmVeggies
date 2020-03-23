@@ -4,9 +4,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from "./user-profile/user-profile.component";
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { FarmersComponent } from './farmers/farmers.component';
-import { CategoryComponent } from './category/category.component';
 import { FarmerDetailComponent } from './farmer-detail/farmer-detail.component';
-
+import { CategoryComponent } from './category/category.component';
+import { CustomerComponent } from './customer/customer.component';
 
 const routes: Routes = [
   {
@@ -41,6 +41,13 @@ const routes: Routes = [
         }
       },
       {
+        path : "farmer-detail/:id",
+        component : FarmerDetailComponent,
+        data : {
+          title : "Farmer Detail"
+        }
+      },
+      {
         path : "category",
         component : CategoryComponent,
         data : {
@@ -48,10 +55,10 @@ const routes: Routes = [
         }
       },
       {
-        path : "farmer-detail/:id",
-        component : FarmerDetailComponent,
+        path : "customer",
+        component : CustomerComponent,
         data : {
-          title : "Farmer Detail"
+          title : "Customer"
         }
       }
     ]

@@ -27,6 +27,7 @@ export class FarmersComponent implements OnInit {
 
         // localStorage.setItem("token", success.headers.get("Authorization"));
         this.farmers = success.body.data;
+        
         console.log(this.farmers);
         this.loader.stop();
       },

@@ -16,7 +16,7 @@ export class AddProductComponent implements OnInit {
   isSubmitted :boolean = false;
   selectedCategory : string;
   image : string;
-  categories = ["Vegetable","Fruits"];
+  categories = [];
 
   constructor(
     private fb: FormBuilder,
@@ -27,6 +27,8 @@ export class AddProductComponent implements OnInit {
   addProductForm: FormGroup;
 
   ngOnInit(): void {
+    this.getCategories();
+
     this.addProductForm = this.fb.group({
       productName : [""],
       productCategory : [""],
@@ -65,6 +67,20 @@ export class AddProductComponent implements OnInit {
   //   this.selectedCategory = event.target.value;
   //   console.log(this.selectedCategory);
   // }
+
+  getCategories(){
+    this.loader.start();
+    this.productService.categories().subscribe(
+      (success: any)=>{
+        this.categories = success.body.data;
+      },
+      (error)=>{
+        console.log(error);
+          // Swal.fire("Erro","","error");
+          this.loader.stop();
+      }
+    )
+  }
 
   onSubmit(){
     console.log(this.addProductForm.value);

@@ -6,11 +6,7 @@ export const Full_ROUTES: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('../../dashboard/dashboard.module').then(m => m.DashboardModule)
-  },
-  // {
-  //   path: 'charts',
-  //   loadChildren: () => import('../../charts/charts.module').then(m => m.ChartsNg2Module)
-  // },
+  }
   //  {
   //   path: 'forms',
   //   loadChildren: () => import('../../forms/forms.module').then(m => m.FormModule)

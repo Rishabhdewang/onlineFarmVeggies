@@ -16,7 +16,7 @@ export class AuthService {
     // private bs: BaseService,
     private errorHandler: ErrorHandlerService
   ) {
-    this.farmer_base_url = 'http://127.0.0.1:8000/api/farmer'
+    this.farmer_base_url = 'http://127.0.0.1:8000/api/farmer/'
   }
 
   register(data) {

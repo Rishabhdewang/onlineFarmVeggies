@@ -15,10 +15,10 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ProfileService } from './../shared/services/profile.service';
 import { FarmersComponent } from './farmers/farmers.component';
-import { CategoryComponent } from './category/category.component';
 import { AdminFarmerService } from '../shared/services/admin-farmer.service';
 import { FarmerDetailComponent } from './farmer-detail/farmer-detail.component';
-
+import { CategoryComponent } from './category/category.component';
+import { CustomerComponent } from './customer/customer.component';
 
 
 @NgModule({
@@ -38,8 +38,9 @@ import { FarmerDetailComponent } from './farmer-detail/farmer-detail.component';
     DashboardComponent,
     ChangePasswordComponent,
     FarmersComponent,
+    FarmerDetailComponent,
     CategoryComponent,
-    FarmerDetailComponent
+    CustomerComponent
     ],
     providers: [ProfileService,AdminFarmerService],
 })

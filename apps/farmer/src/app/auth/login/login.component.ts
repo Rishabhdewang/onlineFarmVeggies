@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.loginForm.value);
     if(this.loginForm.valid){
       let loginData = this.loginForm.value;
       this.loader.start();
@@ -52,8 +51,14 @@ export class LoginComponent implements OnInit {
         },
         error => {
           console.log(error);
+          if(error.error.code == 406){
+            Swal.fire(error.error.message,"","warning");
+          }
+          if(error.status === 432){
+            Swal.fire("Email is not verfied","Please verify your email","warning");
+          }
 
-          Swal.fire("Opps... Login Failed","Please provide correct credential","error");
+          // Swal.fire("Opps... Login Failed","Please provide correct credential","error");
           this.loader.stop();
         }
       );

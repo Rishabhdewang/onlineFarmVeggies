@@ -11,14 +11,23 @@
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
       <div class="card horizontal">
         <div class="card-content d-flex justify-content-between">
-          <div class="card-img col-xl-4 col-lg-4 col-md-6 col-sm-12">
-            <img src="{{farmer.profile_pic}}" style="height: 300px;" alt="Farmer Image">
-          </div>
-          <div class="card-stacked align-self-center">
+          <div class="card-header text-center">
+            <img src="./assets/img/portrait/small/avatar-s-3.png" alt="Brek" width="250" class="rounded-circle gradient-mint">
+        </div>
+          <div class="card align-self-center">
             <div class="px-3">
-              <h4 class="card-title">{{farmer.name}}</h4>
-              <h6>{{farmer.email}}</h6>
-              <h6>{{farmer.mobile_no}}</h6>
+              <div *ngIf="farmer.name">
+                <h5 class="font-weight-bolder m-0 p-0">Name</h5>
+                <h4 class="card-title">{{farmer.name}}</h4>
+              </div>
+              <div *ngIf="farmer.email">
+                <h5 class="font-weight-bolder m-0 p-0">Email</h5>
+                <h6>{{farmer.email}}</h6>
+              </div>
+              <div *ngIf="farmer.mobile_no">
+                <h5 class="font-weight-bolder">Mobile Number</h5>
+                <h6>{{farmer.mobile_no}}</h6>
+              </div>
               <div class="row mt-2">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                   <h4>{{farmer.address.address1}},{{farmer.address.city}},{{farmer.address.state}}</h4>
@@ -136,3 +145,4 @@
 </ng-template>
 </section>
 <!-- // Horizontal cards end -->
+

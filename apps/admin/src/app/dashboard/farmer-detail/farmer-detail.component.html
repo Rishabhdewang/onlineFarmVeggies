@@ -12,18 +12,29 @@
     </div>
   
     <div class="row">
-      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12" style="text-align: center;">
-        <img src="{{farmer.profile_pic}}" style="width: 22rem" alt="">
+      <div class="card col-xl-4 col-lg-4 col-md-12 col-sm-12" style="text-align: center;">
+        <div class="card-header text-center">
+          <img src="./assets/img/portrait/small/avatar-s-3.png" alt="Brek" width="250" class="rounded-circle gradient-mint">
+      </div>
       </div>
       <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 mt-3">
-        <div class="align-self-center">
+        <div class=" card align-self-center">
           <div class="px-3">
-            <h4 class="card-title">{{farmer.name}}</h4>
-            <h6>{{farmer.email}}</h6>
-            <p>{{farmer.address.address1}}, {{farmer.address.city}} ({{farmer.address.state}}) {{farmer.address.pinCode}}</p>
+            <div *ngIf="farmer.name">
+              <h5 class="font-weight-bolder m-0 p-0">Name</h5>
+              <h4>{{farmer.name}}</h4>
+            </div>
+            <div *ngIf="farmer.email">
+              <h5 class="font-weight-bolder m-0 p-0">Email</h5>
+              <h4>{{farmer.email}}</h4>
+            </div>
+            <div *ngIf="farmer.address">
+              <h5 class="font-weight-bolder m-0 p-0">Address</h5>
+              <h4>{{farmer.address.address1}}, {{farmer.address.city}} ({{farmer.address.state}}) {{farmer.address.pinCode}}</h4>
+            </div>
             <div class="row mt-5">
               <div class="col">
-                <button class="btn btn-raised btn-warning">Update</button>
+                <button class="btn btn-raised btn-warning">Remove</button>
               <!-- </div>
               <div class="col"> -->
                 <button *ngIf="!farmer.isAdminVerified" class="btn btn-raised btn-success ml-2" (click)="changeVerification(true)">Verify</button>

@@ -43,4 +43,25 @@ export class AdminFarmerService {
           );
     }
 
+    getCategory(){
+      return this.http.get(this.admin_base_url + "category", { observe: "response" }).pipe(
+        retry(3),
+        catchError(this.errorHandler.handleError)
+      );
+    }
+
+    addCategory(data){
+      return this.http.post(this.admin_base_url + "category",data, { observe: "response" }).pipe(
+        retry(3),
+        catchError(this.errorHandler.handleError)
+      );
+    }
+
+    deleteCategory(id){
+      return this.http.delete(this.admin_base_url + "category/"+ id, { observe: "response" }).pipe(
+        retry(3),
+        catchError(this.errorHandler.handleError)
+      );
+    }
+
 }
