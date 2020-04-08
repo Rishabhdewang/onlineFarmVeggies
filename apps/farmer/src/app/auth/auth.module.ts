@@ -8,7 +8,7 @@ import { MatchHeightModule } from "../shared/directives/match-height.directive";
 
 import { LoginComponent } from './login/login.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
 import { RegisterComponent } from './register/register.component';

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
 import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
 import { RegisterComponent } from './register/register.component';
 
