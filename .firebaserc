@@ -1,0 +1,20 @@
+{
+  "projects": {
+    "default": "online-farm-veggies-customer"
+  },
+  "targets": {
+    "online-farm-veggies-customer": {
+      "hosting": {
+        "farmer": [
+          "onlinefarmveggiesfarmer"
+        ],
+        "customer": [
+          "online-farm-veggies-customer"
+        ],
+        "admin": [
+          "onlinefarmveggiesadmin"
+        ]
+      }
+    }
+  }
+}

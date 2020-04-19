@@ -55,7 +55,7 @@ export class ChangePasswordComponent implements OnInit {
       this.authService.changePassword(changeFromData).subscribe(
         (success: any) => {
 
-          this.router.navigateByUrl(`/auth/login`);
+          this.router.navigateByUrl(`/farmer/auth/login`);
           Swal.fire("Password Changed","Password Changed Successfully","success");
           this.loader.stop();
         },

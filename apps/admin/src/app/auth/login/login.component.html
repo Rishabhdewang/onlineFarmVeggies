@@ -21,17 +21,17 @@
                       formControlName="email" required />
                     <div 
                       *ngIf="loginForm.controls['email'].hasError('required') && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)"
-                      class="error mb-2">
+                      class="error mb-2 text-danger">
                       Please enter email.
                     </div>
-                    <div *ngIf="loginForm.controls.email.errors?.email" class="error mb-2">
+                    <div *ngIf="loginForm.controls.email.errors?.email" class="error mb-2 text-danger">
                       Please provide valid email id
                     </div>
                     <input type="password" class="form-control mb-2" (keyup)="check_login()" placeholder="Password"
                       formControlName="password" required />
                     <div
                       *ngIf="loginForm.controls['password'].hasError('required')  && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
-                      class="error mb-2">
+                      class="error mb-2 text-danger">
                       Please enter a password
                     </div>
                     <div class="d-flex justify-content-between mt-2">

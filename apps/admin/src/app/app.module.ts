@@ -27,6 +27,7 @@ import { AuthGuard } from "./shared/auth/auth-guard.service";
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './shared/auth/auth.interceptor';
+import { BaseService } from './shared/auth/base.service';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -66,6 +67,7 @@ export function createTranslateLoader(http: HttpClient) {
   providers: [
     AuthService,
     AuthGuard,
+    BaseService,
     DragulaService,
     {
       provide: PERFECT_SCROLLBAR_CONFIG,

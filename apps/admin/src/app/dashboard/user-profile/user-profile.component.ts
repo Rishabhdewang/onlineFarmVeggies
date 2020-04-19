@@ -30,7 +30,7 @@ import {
 })
 export class UserProfileComponent implements OnInit {
 
-  farmer;
+  admin;
   image;
   change: boolean = false;
   constructor(
@@ -46,7 +46,6 @@ export class UserProfileComponent implements OnInit {
     this.updateForm = this.fb.group({
       name: [""],
       email: [""],
-      mobile_no: [""],
       profile_pic : [""],
       address: this.fb.group({
         address1: [""],
@@ -55,7 +54,7 @@ export class UserProfileComponent implements OnInit {
         pinCode: [""],
       })
     });
-    this.getFarmer()
+    this.getAdmin()
   }
 
   uploadFile(event) {
@@ -72,19 +71,14 @@ export class UserProfileComponent implements OnInit {
     }
   }
 
-  getFarmer() {
+  getAdmin() {
     this.loader.start();
-    this.profileService.getFarmer().subscribe(
+    this.profileService.getadmin().subscribe(
       (success: any) => {
-        // console.log("this is success: " + JSON.stringify(success));
 
-        // localStorage.setItem("token", success.headers.get("Authorization"));
-        // console.log(localStorage.getItem('token'));
         console.log(success.body.data);
-        this.farmer = success.body.data;
-        // this.router.navigateByUrl(`/dashboard/product`);
-        // Swal.fire("Product","Welcome to Dashbord","success");
-        // alertFunctions.typeSuccess();
+        this.admin = success.body.data;
+
         this.loader.stop();
       },
       error => {
@@ -106,14 +100,8 @@ export class UserProfileComponent implements OnInit {
       let updateData = this.updateForm.value;
       // console.log(updateData)
       this.loader.start();
-      this.profileService.updateFarmer(formData).subscribe(
+      this.profileService.updateAdmin(formData).subscribe(
       (success: any) => {
-        // console.log("this is success: " + JSON.stringify(success));
-
-        // localStorage.setItem("token", success.headers.get("Authorization"));
-        // console.log(localStorage.getItem('token'));
-        // console.log(success.body.data);
-        // this.farmer = success.body.data;
         this.router.navigateByUrl(`/admin/dashboard/user-profile`);
         Swal.fire("Profile Updated","","success");
         // alertFunctions.typeSuccess();
@@ -121,7 +109,7 @@ export class UserProfileComponent implements OnInit {
       },
       error => {
         console.log(error);
-        // Swal.fire("Opps... Login Failed","Please provide correct credential","error");
+        Swal.fire("Update Failed","Something went wrong. Try after sometime !!","error");
         this.loader.stop();
       }
     );

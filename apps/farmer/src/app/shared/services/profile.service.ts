@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ErrorHandlerService } from './../auth/error-handler.service';
-// import { BaseService } from './base.service';
+import { BaseService } from './../auth/base.service';
 import { catchError,retry,map } from 'rxjs/operators';
 
 @Injectable()
@@ -15,10 +15,10 @@ export class ProfileService {
     constructor(
       private http: HttpClient,
       public router: Router,
-      // private bs: BaseService,
+      private bs: BaseService,
       private errorHandler: ErrorHandlerService
     ) {
-      this.farmer_base_url = 'http://127.0.0.1:8000/api/farmer/'
+      this.farmer_base_url = bs.farmer_url;
     }
   
     getFarmer() {

@@ -1,0 +1,5 @@
+<div class="row list m-0 p-0">
+    <a class="col-12 list nav-link" [routerLink]="['/product/products']" routerLinkActive="router-link-active" ><div class="col p-2 shadow-sm mb-2" *ngFor="let category of categories">
+        <span>{{category.categoryName}}</span>
+    </div></a>
+</div>

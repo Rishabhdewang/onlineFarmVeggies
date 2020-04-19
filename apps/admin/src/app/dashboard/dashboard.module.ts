@@ -16,6 +16,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ProfileService } from './../shared/services/profile.service';
 import { FarmersComponent } from './farmers/farmers.component';
 import { AdminFarmerService } from '../shared/services/admin-farmer.service';
+import { AdminCustomerService } from '../shared/services/admin-customer.service';
 import { FarmerDetailComponent } from './farmer-detail/farmer-detail.component';
 import { CategoryComponent } from './category/category.component';
 import { CustomerComponent } from './customer/customer.component';
@@ -42,6 +43,6 @@ import { CustomerComponent } from './customer/customer.component';
     CategoryComponent,
     CustomerComponent
     ],
-    providers: [ProfileService,AdminFarmerService],
+    providers: [ProfileService,AdminFarmerService,AdminCustomerService],
 })
 export class DashboardModule { }

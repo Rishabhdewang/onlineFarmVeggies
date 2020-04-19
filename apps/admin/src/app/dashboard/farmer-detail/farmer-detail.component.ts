@@ -85,4 +85,20 @@ export class FarmerDetailComponent implements OnInit {
   }
 }
 
+  removeFarmer(){
+    if(this.farmerId){
+      this.loader.start();
+      this.farmerService.removeFarmer(this.farmerId).subscribe(
+        (success: any) => {
+          this.router.navigateByUrl("/admin/dashboard/farmers");
+          this.loader.stop();
+        },
+        error => {
+          console.log(error);
+          // Swal.fire("Opps... Login Failed","Please provide correct credential","error");
+          this.loader.stop();
+        }
+      );
+    }
+}
 }

@@ -1,0 +1,97 @@
+<div class="card shadow-lg mb-4">
+    <div class="container-fliud">
+        <div class="wrapper row">
+            <div class="preview col-md-6">
+                <div class="preview-pic tab-content">
+                  <div class="tab-pane active" id="pic-1"><img src="{{product.product_image}}" /></div>
+                  <!-- <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
+                  <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>
+                  <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>
+                  <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div> -->
+                </div>
+                <!-- <ul class="preview-thumbnail nav nav-tabs">
+                  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="{{product.product_image}}" /></a></li>
+                  <li><a data-target="#pic-2" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                  <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                  <li><a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                  <li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                </ul> -->
+                
+            </div>
+            <div class="details col-md-6">
+                <h3 class="product-title">{{product.productName}}</h3>
+                <h6 class="font-small-3 font-weight-lighter">{{product.productCategory}}</h6>
+                <div class="rating">
+                    <div class="stars">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                    <span class="review-no">41 reviews</span>
+                </div>
+                <p class="product-description">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</p>
+                <h4 class=""><span>Rs. {{product.productPrices[0].rate}} - </span><span>{{product.productPrices[0].quantity}} g </span></h4>
+                <a class="text-decoration-none"><div *ngFor="let price of product.productPrices" class="row  prices m-0 mb-1">
+                    <div class="col-7">
+                        Rs. {{price.rate}}
+                    </div>
+                    <div class="col-5">
+                        {{price.quantity}} g
+                    </div>
+                </div>
+                </a>
+                <div class="action mt-2 p-1">
+                    <button class="add-to-cart btn btn-sm btn-success mr-3" type="button">add to cart <i class="fa fa-cart-plus ml-2" aria-hidden="true"></i></button>
+                    <button class="like btn btn-sm" type="button"><span class="fa fa-heart"></span></button>
+                </div>
+            </div>
+            <div class="col-sm-12 mt-4">
+                <div class="mt-3">
+                    <div class="card-header tab-card-header p-0 pb-1">
+                      <ul class="nav nav-tabs card-header-tabs p-0" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One" aria-selected="true">Product Detail</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false">Other Info</a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three" aria-selected="false">Three</a>
+                        </li> -->
+                      </ul>
+                    </div>
+            
+                    <div class="tab-content" id="myTabContent">
+                      <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab">
+                        <h5 class="card-title" *ngIf="product.productDetail.productAbout">Product About</h5>
+                        <p class="card-text">{{product.productDetail.productAbout}}</p>
+                        <hr>
+                        <h5 class="card-title" *ngIf="product.productDetail.productBenefits">Product Benefits</h5> 
+                        <p class="card-text">{{product.productDetail.productBenefits}}</p> 
+                        <hr>
+                        <h5 class="card-title" *ngIf="product.productDetail.productStorageAndUsage">Product Storage & Usage</h5>
+                        <p class="card-text">{{product.productDetail.productStorageAndUsage}}</p>   
+                      </div>
+                      <div class="tab-pane fade p-3" id="two" role="tabpanel" aria-labelledby="two-tab">
+                        <h5 class="card-title"*ngIf="product.productDetail.otherProductInfo.eanCode" >Product EAN Code</h5>
+                        <p class="card-text">{{product.productDetail.otherProductInfo.eanCode}}</p>
+                        <hr>              
+                        <h5 class="card-title" *ngIf="product.productDetail.otherProductInfo.bestBefore">Product Best Before</h5>
+                        <p class="card-text">{{product.productDetail.otherProductInfo.bestBefore}}</p>
+                        <hr>
+                        <h5 class="card-title" *ngIf="product.productDetail.otherProductInfo.sourceAndMarketed">Product Sourced & Marketed</h5>
+                        <p class="card-text">{{product.productDetail.otherProductInfo.sourceAndMarketed}}</p>
+                      </div>
+                      <div class="tab-pane fade p-3" id="three" role="tabpanel" aria-labelledby="three-tab">
+                        <h5 class="card-title">Tab Card Three</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>            
+                      </div>
+            
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>

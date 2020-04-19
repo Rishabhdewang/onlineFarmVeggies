@@ -6,44 +6,47 @@
       <!-- <p class="content-sub-header">Cards with horizontal image.</p> -->
     </div>
   </div>
-
+  
   <div class="row text-left">
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-      <div class="card horizontal">
-        <div class="card-content d-flex justify-content-between">
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <div class="card card-content d-flex justify-content-between">
           <div class="card-header text-center">
-            <img src="./assets/img/portrait/small/avatar-s-3.png" alt="Brek" width="250" class="rounded-circle gradient-mint">
-        </div>
-          <div class="card align-self-center">
-            <div class="px-3">
-              <div *ngIf="farmer.name">
+            <img src="./../../../assets//img/gallery/13.jpg" alt="Brek" width="250">
+            <div class="px-3 pt-2">
+              <div *ngIf="admin.name">
                 <h5 class="font-weight-bolder m-0 p-0">Name</h5>
-                <h4 class="card-title">{{farmer.name}}</h4>
+                <h4 class="card-title">{{admin.name}}</h4>
               </div>
-              <div *ngIf="farmer.email">
+              <div *ngIf="admin.email">
                 <h5 class="font-weight-bolder m-0 p-0">Email</h5>
-                <h6>{{farmer.email}}</h6>
+                <h6>{{admin.email}}</h6>
               </div>
-              <div *ngIf="farmer.mobile_no">
+              <div *ngIf="admin.mobile_no">
                 <h5 class="font-weight-bolder">Mobile Number</h5>
-                <h6>{{farmer.mobile_no}}</h6>
-              </div>
-              <div class="row mt-2">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                  <h4>{{farmer.address.address1}},{{farmer.address.city}},{{farmer.address.state}}</h4>
-                  <h4>{{farmer.address.pinCode}}</h4>
-                </div>
-              </div>
-              <div class="row mt-3">
-                <div class="col">
-                  <button class="btn btn-raised btn-warning" (click)="showForm()">Update</button>
-                </div>
+                <h6>{{admin.mobile_no}}</h6>
               </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
+    <div  class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+      <div class="card card-content d-flex align-self-center">
+        <div class="px-3">
+          <div *ngIf="admin.address" class="row mt-2">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+              <h3 class="font-weight-bold">Address: </h3>
+              <h4>{{admin.address.address1}},{{admin.address.city}},{{admin.address.state}}</h4>
+              <h4><span class="font-weight-bold">Pincode: </span>{{admin.address.pinCode}}</h4>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col">
+              <button class="btn btn-raised btn-warning" (click)="showForm()">Update</button>
+            </div>
+          </div>    
+        </div>
+      </div>
+      </div>
   </div>
   <ng-template [ngIf]="change">
   <div class="row text-left">
@@ -105,18 +108,12 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="userinput5">Email</label>
-                      <input class="form-control border-primary" type="email" id="userinput5" formControlName="email">
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="userinput7">Contact Number</label>
-                      <input class="form-control border-primary" id="userinput7" type="contact" formControlName="mobile_no">
+                      <input class="form-control border-primary" type="email" id="userinput5" formControlName="email" [(ngModel)]="admin.email" disabled>
                     </div>
                   </div>
                 </div>
 
-                <div class="form-group row">
+                <!-- <div class="form-group row">
                   <label class="col-md-3 label-control">Profile Image: </label>
                   <div class="col-md-9">
                     <div class="custom-file  mx-auto d-block">
@@ -125,7 +122,7 @@
                       <label class="custom-file-label" id="custom-file-label" for="inputGroupFile01">Choose file</label>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
 
               <div class="form-actions right">

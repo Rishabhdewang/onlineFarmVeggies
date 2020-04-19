@@ -1,0 +1,76 @@
+.nav-link{
+    color: 	#006837;
+}
+.bg-light{
+    width: auto;
+}
+/* Set the border color to the desired color */ 
+.custom-toggler.navbar-toggler { 
+    // border-color: white;
+    outline-style: none;
+    // position: relative;
+    float: right;
+    margin-left: 80px;
+    padding-right: 0;
+    padding-top: 20px;
+} 
+.custom-toggler .navbar-toggler-icon { 
+    // margin-left: 90px;
+    background-image: url( 
+"data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 128, 0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); 
+} 
+.navbar-light{
+    color: #006837;
+}
+.nav-item{
+    font-size: 1rem;
+//    font-family: 'Alice', serif;
+}
+.btn-success{
+    background-color: #006837;
+}
+.dropdown-item{
+    padding: 0.2rem 1rem;
+}
+.dropdown-item:active{
+    background-color: #006837;
+}
+.dropdown:hover>.dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown>.dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+      pointer-events: none;
+  }
+  
+.dropdown-item:hover{
+    background-color: #006837;
+    color: white;
+}
+.cart{
+    padding: 1.2rem;
+    color: 	#04773B;
+}
+.login{
+    padding: 1.2rem;
+}
+.navbar{
+    padding: 0 1rem 0 1rem;
+}
+.navbar-nav{
+    padding-top: .4rem;
+}
+.fav{
+color: 	red;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+   .navbar{
+       justify-content: space-around;
+   }
+   .dropdown {
+        display: none;
+   }
+  }

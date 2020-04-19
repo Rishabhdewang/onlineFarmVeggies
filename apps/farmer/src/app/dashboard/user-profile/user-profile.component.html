@@ -8,14 +8,11 @@
   </div>
 
   <div class="row text-left">
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-      <div class="card horizontal">
-        <div class="card-content d-flex justify-content-between">
-          <div class="card-header text-center">
-            <img src="{{farmer.profile_pic}}" alt="Brek" width="250" class="rounded-circle gradient-mint">
-        </div>
-          <div class="card-stacked align-self-center">
-            <div class="px-3">
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <div class="card card-content d-flex justify-content-between">
+          <div *ngIf="farmer.profile_pic" class="card-header text-center">
+            <img src="{{farmer.profile_pic}}" alt="Brek" width="250">
+            <div class="px-3 pt-2">
               <div *ngIf="farmer.name">
                 <h5 class="font-weight-bolder m-0 p-0">Name</h5>
                 <h4 class="card-title">{{farmer.name}}</h4>
@@ -28,22 +25,28 @@
                 <h5 class="font-weight-bolder">Mobile Number</h5>
                 <h6>{{farmer.mobile_no}}</h6>
               </div>
-              <div class="row mt-2">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                  <h4>{{farmer.address.address1}},{{farmer.address.city}},{{farmer.address.state}}</h4>
-                  <h4>{{farmer.address.pinCode}}</h4>
-                </div>
-              </div>
-              <div class="row mt-3">
-                <div class="col">
-                  <button class="btn btn-raised btn-warning" (click)="showForm()">Update</button>
-                </div>
-              </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
+    <div  class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+      <div class="card card-content d-flex align-self-center">
+        <div class="px-3">
+          <div *ngIf="farmer.address" class="row mt-2">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+              <h3 class="font-weight-bold">Address: </h3>
+              <h4>{{farmer.address.address1}},{{farmer.address.city}},{{farmer.address.state}}</h4>
+              <h4><span class="font-weight-bold">Pincode: </span>{{farmer.address.pinCode}}</h4>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col">
+              <button class="btn btn-raised btn-warning" (click)="showForm()">Update</button>
+            </div>
+          </div>    
+        </div>
+      </div>
+      </div>
   </div>
   <ng-template [ngIf]="change">
   <div class="row text-left">
@@ -105,13 +108,13 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="userinput5">Email</label>
-                      <input class="form-control border-primary" type="email" id="userinput5" formControlName="email">
+                      <input class="form-control border-primary" type="email" id="userinput5" formControlName="email" [(ngModel)]="farmer.email" disabled>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="userinput7">Contact Number</label>
-                      <input class="form-control border-primary" id="userinput7" type="contact" formControlName="mobile_no">
+                      <input class="form-control border-primary" id="userinput7" type="contact" formControlName="mobile_no" [(ngModel)]="farmer.mobile_no" disabled>
                     </div>
                   </div>
                 </div>

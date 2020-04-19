@@ -11,7 +11,7 @@ import { AuthGuard } from "./shared/auth/auth-guard.service";
 
 const appRoutes: Routes = [
   {
-    path: 'farmer',
+    path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
   },
@@ -19,7 +19,7 @@ const appRoutes: Routes = [
   { path: 'farmer', component: ContentLayoutComponent, data: { title: 'content Views' }, children: CONTENT_ROUTES },
   {
     path: '**',
-    redirectTo: 'pages/error'
+    redirectTo: 'error'
   }
 ];
 

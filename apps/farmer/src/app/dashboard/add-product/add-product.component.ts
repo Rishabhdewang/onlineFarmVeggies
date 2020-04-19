@@ -33,6 +33,7 @@ export class AddProductComponent implements OnInit {
       productName : [""],
       productCategory : [""],
       productPrices : this.fb.array([]),
+      product_image : [""],
       // productTotalQuantity : [""],
       productDetail : this.fb.group({
         productAbout : [""],
@@ -58,7 +59,7 @@ export class AddProductComponent implements OnInit {
   }
 
   uploadFile(event) {
-    this.image = event.target.files[0].name;
+    this.image = event.target.files[0],name;
     let label = document.getElementById("custom-file-label");
     label.innerHTML = this.image;
   }
@@ -84,10 +85,14 @@ export class AddProductComponent implements OnInit {
 
   onSubmit(){
     console.log(this.addProductForm.value);
+    let formData: FormData = new FormData();
+    formData.append("data", JSON.stringify(this.addProductForm.value));
+    formData.append("product_image",this.image);
+
     if(this.addProductForm.valid){
-      let addProductData = this.addProductForm.value;
+      // let addProductData = this.addProductForm.value;
       this.loader.start();
-      this.productService.product(addProductData).subscribe(
+      this.productService.product(formData).subscribe(
         (success: any) => {
           // console.log("this is success: " + JSON.stringify(success));
 

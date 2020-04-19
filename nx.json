@@ -24,6 +24,13 @@
     "admin-e2e": {
       "tags": [],
       "implicitDependencies": ["admin"]
+    },
+    "customer": {
+      "tags": []
+    },
+    "customer-e2e": {
+      "tags": [],
+      "implicitDependencies": ["customer"]
     }
   }
 }

@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ErrorHandlerService } from './error-handler.service';
-// import { BaseService } from './base.service';
+import { BaseService } from './base.service';
 import { catchError,retry,map } from 'rxjs/operators';
 
 @Injectable()
@@ -13,10 +13,10 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     public router: Router,
-    // private bs: BaseService,
+    private bs: BaseService,
     private errorHandler: ErrorHandlerService
   ) {
-    this.admin_base_url = 'http://127.0.0.1:8000/api/admin/'
+    this.admin_base_url = bs.admin_base_url;
   }
 
   register(data) {

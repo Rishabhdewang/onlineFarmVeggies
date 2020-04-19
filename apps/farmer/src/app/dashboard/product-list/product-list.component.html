@@ -39,17 +39,17 @@
               <td></td>
               <tbody>
                 <tr *ngFor="let product of products | paginate: { itemsPerPage: 5, currentPage: p}">
-                  <td><img class="media-object round-media" src="assets/img/photos/banana.jpg"
+                  <td><img class="media-object round-media" src="{{product.product_image}}"
                       alt="Generic placeholder image" style="height: 65px;" /></td>
-                  <td>{{product.productName}}</td>
-                  <td>{{product.productCategory}}</td>
+                  <td class="pt-3">{{product.productName}}</td>
+                  <td class="pt-3">{{product.productCategory}}</td>
                   <td>{{product.productPrices['quantity']}}</td>
-                  <td>
+                  <td class="pt-3">
                     <a class="text-decoration-none" [routerLink]="['/farmer/dashboard/productDetail',product.id]">
-                      <button class="btn btn-outline-success">More Detail</button>
+                      <i class="fa fa-arrow-circle-o-right font-medium-4" aria-hidden="true"></i>
                     </a>
-                    <a class="danger ml-4" data-original-title="" title="">
-                      <i class="ft-trash font-medium-3"></i>
+                    <a class="danger ml-2" data-original-title="" title="">
+                      <i class="ft-trash font-medium-4"></i>
                     </a>
                   </td>
                 </tr>

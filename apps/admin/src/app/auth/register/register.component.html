@@ -31,7 +31,7 @@
                   />
                   <div 
                   *ngIf="registerForm.controls['name'].hasError('required') && (registerForm.controls['name'].dirty || registerForm.controls['name'].touched)"
-                  class="error mb-2">
+                  class="error mb-2 text-danger">
                   Please enter name.
                 </div>
                   <input
@@ -43,7 +43,7 @@
                   />
                   <div 
                       *ngIf="registerForm.controls['email'].hasError('required') && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)"
-                      class="error mb-2">
+                      class="error mb-2 text-danger">
                       Please enter email.
                     </div>
                     <div *ngIf="registerForm.controls.email.errors?.email" class="error mb-2">
@@ -58,7 +58,7 @@
                   />
                   <div
                       *ngIf="registerForm.controls['password'].hasError('required')  && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)"
-                      class="error mb-2">
+                      class="error mb-2 text-danger">
                       Please enter a password
                     </div>
                   <input
@@ -70,8 +70,8 @@
                   />
                   <div
                       *ngIf="registerForm.controls['password'].hasError('required')  && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)"
-                      class="error mb-2">
-                      Please enter a password
+                      class="error mb-2 text-danger">
+                      Please enter confirm password
                     </div>
                   <div
                     class="custom-control custom-checkbox custom-control-inline mb-3"
