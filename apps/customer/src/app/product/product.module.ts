@@ -9,6 +9,9 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CustomerProductService } from '../shared/services/product.service';
+import { CartService } from '../shared/services/cart.service';
+import { PaymentComponent } from './payment/payment.component';
+import { DataService } from '../shared/services/data.service';
 
 
 @NgModule({
@@ -27,9 +30,10 @@ import { CustomerProductService } from '../shared/services/product.service';
         ProductsComponent,
         ProductDetailComponent,
         ShoppingCartComponent,
-        CheckoutComponent
+        CheckoutComponent,
+        PaymentComponent
     ],
-    providers: [CustomerProductService],
+    providers: [CustomerProductService,CartService,DataService],
 })
 
 export class ProductModule {}

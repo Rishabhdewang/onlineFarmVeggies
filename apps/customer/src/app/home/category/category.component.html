@@ -1,5 +1,11 @@
-<div class="row list m-0 p-0">
-    <a class="col-12 list nav-link" [routerLink]="['/product/products']" routerLinkActive="router-link-active" ><div class="col p-2 shadow-sm mb-2" *ngFor="let category of categories">
-        <span>{{category.categoryName}}</span>
-    </div></a>
-</div>
+<!-- <div class="row cont m-0 p-0">
+    <a class="col-12 list nav-link" [routerLink]="['/product/products']" routerLinkActive="router-link-active" >
+        <div class="col p-2 shadow-sm mb-2" *ngFor="let category of categories">{{category.categoryName}}</div>
+    </a>
+</div> -->
+
+<div class="scrolling-wrapper">
+    <div class="card shadow shadow-big" *ngFor="let category of categories" [routerLink]="['/product/category-products',category.categoryName]">
+    <div class="centered">{{category.categoryName}}</div>
+    </div>
+  </div>

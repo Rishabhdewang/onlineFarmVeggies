@@ -41,9 +41,6 @@ export class CategoryComponent implements OnInit {
           this.loader.stop();
         },
         error => {
-          console.log(error);
-
-          Swal.fire("Request Failed","Please try again !!!","error");
           this.loader.stop();
         }
       );
@@ -62,9 +59,6 @@ export class CategoryComponent implements OnInit {
           this.loader.stop();
         },
         error => {
-          console.log(error);
-
-          Swal.fire("Request Failed","Please try again !!!","error");
           this.loader.stop();
         }
       );
@@ -84,9 +78,6 @@ export class CategoryComponent implements OnInit {
           this.loader.stop();
         },
         error => {
-          console.log(error);
-
-          Swal.fire("Request Failed","Please try again !!!","error");
           this.loader.stop();
         }
       );

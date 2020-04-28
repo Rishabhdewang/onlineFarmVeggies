@@ -33,20 +33,10 @@ export class ProductDetailComponent implements OnInit {
     this.loader.start();
       this.productService.productDetail(this.productId).subscribe(
         (success: any) => {
-          // console.log("this is success: " + JSON.stringify(success));
-
-          // localStorage.setItem("token", success.headers.get("Authorization"));
-          // console.log(localStorage.getItem('token'));
-          console.log(success.body.data);
           this.product = success.body.data[0];
-          // this.router.navigateByUrl(`/dashboard/product`);
-          // Swal.fire("Product","Welcome to Dashbord","success");
-          // alertFunctions.typeSuccess();
           this.loader.stop();
         },
         error => {
-          console.log(error);
-          // Swal.fire("Opps... Login Failed","Please provide correct credential","error");
           this.loader.stop();
         }
       );

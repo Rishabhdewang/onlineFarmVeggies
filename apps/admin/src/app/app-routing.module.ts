@@ -8,18 +8,19 @@ import { Full_ROUTES } from "./shared/routes/full-layout.routes";
 import { CONTENT_ROUTES } from "./shared/routes/content-layout.routes";
 
 import { AuthGuard } from "./shared/auth/auth-guard.service";
+import { ErrorPageComponent } from './auth/error/error-page.component';
 
 const appRoutes: Routes = [
   {
-    path: 'admin',
-    redirectTo: 'dashboard',
+    path: '',
+    redirectTo: 'admin/dashboard/dashboard',
     pathMatch: 'full',
   },
   { path: 'admin', component: FullLayoutComponent, data: { title: 'full Views' }, children: Full_ROUTES, canActivate : [AuthGuard] },
   { path: 'admin', component: ContentLayoutComponent, data: { title: 'content Views' }, children: CONTENT_ROUTES },
   {
     path: '**',
-    redirectTo: 'pages/error'
+    component : ErrorPageComponent
   }
 ];
 

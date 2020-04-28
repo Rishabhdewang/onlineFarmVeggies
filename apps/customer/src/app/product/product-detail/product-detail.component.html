@@ -1,22 +1,11 @@
-<div class="card shadow-lg mb-4">
+<div class="card shadow shadow-big mb-4">
     <div class="container-fliud">
         <div class="wrapper row">
             <div class="preview col-md-6">
                 <div class="preview-pic tab-content">
-                  <div class="tab-pane active" id="pic-1"><img src="{{product.product_image}}" /></div>
-                  <!-- <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
-                  <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>
-                  <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>
-                  <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div> -->
+                  <div class="tab-pane active" id="pic-1">
+                    <img src="{{product.product_image}}" class="image"/></div>
                 </div>
-                <!-- <ul class="preview-thumbnail nav nav-tabs">
-                  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="{{product.product_image}}" /></a></li>
-                  <li><a data-target="#pic-2" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-                  <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-                  <li><a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-                  <li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-                </ul> -->
-                
             </div>
             <div class="details col-md-6">
                 <h3 class="product-title">{{product.productName}}</h3>
@@ -31,19 +20,10 @@
                     </div>
                     <span class="review-no">41 reviews</span>
                 </div>
-                <p class="product-description">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</p>
-                <h4 class=""><span>Rs. {{product.productPrices[0].rate}} - </span><span>{{product.productPrices[0].quantity}} g </span></h4>
-                <a class="text-decoration-none"><div *ngFor="let price of product.productPrices" class="row  prices m-0 mb-1">
-                    <div class="col-7">
-                        Rs. {{price.rate}}
-                    </div>
-                    <div class="col-5">
-                        {{price.quantity}} g
-                    </div>
-                </div>
-                </a>
+                <!-- <p class="product-description">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</p> -->
+                <h4 class=""><span class="inr-sign"></span><span> {{product.productPrices[0].rate}} - </span><span>{{product.productPrices[0].quantity}} g </span></h4>
                 <div class="action mt-2 p-1">
-                    <button class="add-to-cart btn btn-sm btn-success mr-3" type="button">add to cart <i class="fa fa-cart-plus ml-2" aria-hidden="true"></i></button>
+                    <button class="add-to-cart btn btn-sm btn-success mr-3" type="button" (click)="AddToCart()">add to cart <i class="fa fa-cart-plus ml-2" aria-hidden="true"></i></button>
                     <button class="like btn btn-sm" type="button"><span class="fa fa-heart"></span></button>
                 </div>
             </div>
@@ -57,9 +37,6 @@
                         <li class="nav-item">
                             <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false">Other Info</a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three" aria-selected="false">Three</a>
-                        </li> -->
                       </ul>
                     </div>
             

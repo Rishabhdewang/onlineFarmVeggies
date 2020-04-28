@@ -8,18 +8,19 @@ import { Full_ROUTES } from "./shared/routes/full-layout.routes";
 import { CONTENT_ROUTES } from "./shared/routes/content-layout.routes";
 
 import { AuthGuard } from "./shared/auth/auth-guard.service";
+import { ErrorPageComponent } from './auth/error/error-page.component';
 
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'farmer/dashboard/dashboard',
     pathMatch: 'full',
   },
   { path: 'farmer', component: FullLayoutComponent, data: { title: 'full Views' }, children: Full_ROUTES, canActivate : [AuthGuard] },
   { path: 'farmer', component: ContentLayoutComponent, data: { title: 'content Views' }, children: CONTENT_ROUTES },
   {
     path: '**',
-    redirectTo: 'error'
+    component: ErrorPageComponent
   }
 ];
 

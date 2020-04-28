@@ -31,7 +31,7 @@ export class CategoryComponent implements OnInit {
 
         // this.router.navigateByUrl(`/admin/dashboard/category`);
         this.categories = success.body.data;
-        console.log(this.categories);
+        // console.log(this.categories);
         this.loader.stop();
       },
       error => {

@@ -10,8 +10,14 @@
   <div class="row text-left">
     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
         <div class="card card-content d-flex justify-content-between">
-          <div *ngIf="farmer.profile_pic" class="card-header text-center">
-            <img src="{{farmer.profile_pic}}" alt="Brek" width="250">
+          <div class="card-header text-center">
+            <!-- <img src="{{farmer.profile_pic}}" alt="Brek" width="250"> -->
+            <div *ngIf="farmer.profile_pic" class="card-header text-center">
+              <img src="{{farmer.profile_pic}}" alt="Brek" width="180" class="">
+            </div>
+            <div *ngIf="!farmer.profile_pic" class="card-header text-center">
+              <img src="../../../assets/img/portrait/avatars/avatar-07.png" alt="Brek" width="180" class="">
+            </div>
             <div class="px-3 pt-2">
               <div *ngIf="farmer.name">
                 <h5 class="font-weight-bolder m-0 p-0">Name</h5>

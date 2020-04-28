@@ -5,6 +5,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
 import { RegisterComponent } from './register/register.component';
+import { NetworkConnectionComponent } from './network-connection/network-connection.component';
+import { ErrorPageComponent } from './error/error-page.component';
 
 // import { Dashboard2Component } from "./dashboard2/dashboard2.component";
 
@@ -45,6 +47,20 @@ const routes: Routes = [
         component : VerifyOtpComponent,
         data : {
           title : "Verify OTP"
+        }
+      },
+      {
+        path: "noconnection",
+        component: NetworkConnectionComponent,
+        data : {
+          title : "No Internet Connection"
+        }
+      },
+      {
+        path : "error",
+        component: ErrorPageComponent,
+        data : {
+          title : "Error"
         }
       }
     ]

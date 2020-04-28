@@ -34,24 +34,18 @@ export class ResetPasswordComponent implements OnInit {
     }
     else{
       if(this.resetForm.valid){
-        let resetData = this.resetForm.value;
+        let resetData = { 
+          newPassword : this.resetForm.value.newPassword,
+          email : localStorage.getItem('email')
+        }
         this.loader.start();
         this.authService.resetPassword(resetData).subscribe(
           (success: any) => {
-            // console.log("this is success: " + JSON.stringify(success));
-  
-            // localStorage.setItem("token", success.headers.get("Authorization"));
-            // console.log(localStorage.getItem('token'));
-  
             this.router.navigateByUrl(`/farmer/auth/login`);
-            Swal.fire("Password Reset","Now try to login","success");
-            // alertFunctions.typeSuccess();
+            Swal.fire("Password Reset","Now you can login","success");
             this.loader.stop();
           },
           error => {
-            console.log(error);
-  
-            Swal.fire("Opps... Error in Resetting","Error in resetting password.Try again...","error");
             this.loader.stop();
           }
         );

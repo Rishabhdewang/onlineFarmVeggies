@@ -1,0 +1,30 @@
+.add-address{
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    padding-top: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.border-radius-none{
+    border-radius: 0 !important;
+}
+
+.update-btn{
+    margin-top: 20px;
+}
+
+  @media (min-width: 320px) and (max-width: 480px) {
+    .update-btn{
+        margin-top:0;
+        margin-bottom: 12px;
+    }
+    .name-field{
+        margin-top: 15px;
+    }
+    .profile{
+        margin-left: 38px;
+        margin-top: 1rem;
+    }
+  }

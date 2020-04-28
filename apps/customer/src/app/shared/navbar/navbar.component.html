@@ -1,25 +1,24 @@
-<nav class="navbar navbar-expand-md bg-light">
+<nav class="navbar navbar-expand-md shadow shadow-big-navbar">
     <div class="row bar">
         <div class="col-10">
-            <a href="/" class="navbar-brand"><img style="width: 70px; height: auto;" src="../../../assets/cart.png" alt="" srcset=""><img src="../../../assets/text.png" style="width: 230px;" class="pl-1 pt-2 pr-3" alt=""></a>
+            <a [routerLink]="['/']"  class="navbar-brand"><img style="width: 70px; height: auto;" src="../../../assets/cart.png" alt="" srcset=""><img src="../../../assets/text.png" style="width: 230px;" class="pl-1 pt-2 pr-3" alt=""></a>
         </div>
      <div class="col-2">
         <button type="button" class="custom-toggler navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button> 
-     </div>
-
     </div>
-    <form class="form-inline mt-2 mr-2 mb-2">
+    </div>
+    <!-- <form class="form-inline mt-2 mr-2 mb-2">
         <div class="input-group" style="width: 21rem;">                    
             <input type="text" class="form-control" placeholder="Search for products">
             <div class="input-group-append">
                 <button type="button" class="btn btn-success"><i class="fa fa-search"></i></button>
             </div>
         </div>
-    </form>
-    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-        <div class="navbar-nav">
+    </form> -->
+    <div class="collapse links navbar-collapse justify-content-end" id="navbarCollapse">
+        <!-- <div class="navbar-nav">
             <a href="#" class="nav-item nav-link"><span>Offers</span></a>
             <a href="#" class="nav-item nav-link">Profile</a>
             <div class="nav-item dropdown">
@@ -30,12 +29,14 @@
                     <a href="#" class="dropdown-item">Herbs & Seasonings</a>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="navbar-nav">
                <div class="nav navbar">
-                <a href="#" class="nav-item nav-link"><i class="fa fa-heart nav-item nav-link fav" aria-hidden="true"><span class="pl-2">Wishlist <span class="badge badge-pill badge-danger">3</span></span></i></a>
-                <a href="product/shopping-cart" class="nav-item nav-link"><i class="fa fa-shopping-cart nav-item nav-link" aria-hidden="true"><span class="pl-2">Cart <span class="badge badge-pill badge-success">3</span></span></i></a>
-                <a href="/auth/login" class="nav-item nav-link">Login</a>
+                <a [routerLink]="['/']" class="nav-item nav-link"><i class="fa fa-heart nav-item nav-link fav" aria-hidden="true"><span class="pl-2">Wishlist</span></i></a>
+                <a [routerLink]="['/product/shopping-cart']" routerLinkActive="router-link-active"  class="nav-item nav-link"><i class="fa fa-shopping-cart nav-item nav-link" aria-hidden="true"><span class="pl-2">Cart</span></i></a>
+                <a *ngIf="!isAuthenticated" [routerLink]="['/auth/login']" class="nav-item nav-link">Login</a>
+                <a *ngIf="isAuthenticated" [routerLink]="['/account/profile']" class="nav-item nav-link" style="margin-top: .1rem;">Account<span class="pr-1"></span><i class="fa fa-user-circle" aria-hidden="true"></i></a>
+                <a *ngIf="isAuthenticated" href="" (click)="logout()" class="nav-item nav-link" style="margin-top: .1rem;">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a>
                 </div>
        </div>
     </div>

@@ -39,8 +39,6 @@ export class ChangePasswordComponent implements OnInit {
           this.loader.stop();
         },
         error => {
-          console.log(error);
-          Swal.fire("Incorrect Old Password","Please try again.","warning");
           this.loader.stop();
         }
       )
@@ -60,9 +58,6 @@ export class ChangePasswordComponent implements OnInit {
           this.loader.stop();
         },
         error => {
-          console.log(error);
-
-          Swal.fire("Request Failed","Please try again !!!","error");
           this.loader.stop();
         }
       );

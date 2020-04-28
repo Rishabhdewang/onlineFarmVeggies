@@ -25,17 +25,11 @@ export class CustomerComponent implements OnInit {
     this.loader.start();
     this.customerService.getCustomerList().subscribe(
       (success: any) => {
-        // console.log("this is success: " + JSON.stringify(success));
-
-        // localStorage.setItem("token", success.headers.get("Authorization"));
         this.customers = success.body.data;
-        
         console.log(this.customers);
         this.loader.stop();
       },
       error => {
-        console.log(error);
-        // Swal.fire("Opps... Login Failed","Please provide correct credential","error");
         this.loader.stop();
       }
     );

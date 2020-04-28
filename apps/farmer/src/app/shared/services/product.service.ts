@@ -43,6 +43,13 @@ export class ProductService {
       );
     }
 
+    orders(){
+      return this.http.get(this.farmer_base_url + "order", { observe: "response" }).pipe(
+        retry(3),
+        catchError(this.errorHandler.handleError)
+      );
+    }
+
     categories(){
       return this.http.get(this.admin_base_url + "category", { observe: "response" }).pipe(
         retry(3),

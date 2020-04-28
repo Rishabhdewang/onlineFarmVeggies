@@ -1,0 +1,225 @@
+<div class="row m-2">
+  <div class="col-lg-12">
+    <div class="mt-3">
+      <div class="tab-card-header p-0 pb-1">
+        <ul class="nav nav-tabs card-header-tabs p-0" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One"
+              aria-selected="true">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two"
+              aria-selected="false">My Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three"
+              aria-selected="false">My Addresses</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab">
+          <h5 class="card-title">Profile & Settings</h5>
+          <div class="row">
+            <div class="col-lg-3">
+              <img class="profile" src="../../../assets/avatar-04.png" width="210" height="200" alt="" srcset="">
+            </div>
+            <div class="col-lg-4">
+            <form [formGroup]="profileUpdateForm" (ngSubmit)="updateProfile()">
+              <div class="row">
+                  <div class="col-lg-12">
+                    <div class="form-group name-field">
+                      <label>Name<span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" value="{{name}}">
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <label>Email</label>
+                      <input type="email" disabled class="form-control" value="{{email}}">
+                    </div>
+                  </div>
+                  <div class="col-lg-12 update-btn">
+                    <button class="btn btn-primary" type="submit">Update</button>
+                  </div>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade p-3" id="two" role="tabpanel" aria-labelledby="two-tab">
+          <h5 class="card-title">My Orders</h5>
+          <div class="row">
+            <div class="col-lg-12">
+                <div *ngFor="let order of orders" class="card border-radius-none shadow shadow-lg mb-2">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-10 col">
+                                <div class="row">
+                                    <div class="col justify-content-center align-items-center">
+                                        <h4 class="card-text">{{order.product.productName}}</h4>
+                                    </div>
+                                    <div class="col">
+                                        <h6><span class="inr-sign"></span>{{order.product.productPrices[0].rate}}</h6>
+                                    </div>
+                                    <div class="col" [ngSwitch]="order.orderStatus">
+                                        <div class="text-success" *ngSwitchCase="'placed'">Order Placed</div>
+                                        <div class="text-success" *ngSwitchCase="'out-for-delivery'">Order Out for delivery</div>
+                                        <div class="text-success" *ngSwitchCase="'delivered'">Order Delivered</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col">
+                                <img src="{{order.product.product_image}}" width="150" height="200" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <div class="tab-pane" id="three" role="tabpanel" aria-labelledby="three-tab">
+          <h5 class="card-title m-3">My Addresses</h5>
+          <div class="row mt-3 mb-3">
+            <div class="col">
+              <a href="#myModal" class="nav-link" data-toggle="modal" data-target="#myModal"><i
+                  class="fa fa-plus-circle pr-2" aria-hidden="true"></i>Add a new address</a>
+            </div>
+          </div>
+          <div class="row">
+            <div *ngFor="let address of addresses" class="col-lg-4 m-1">
+              <div class="card border-radius-none shadow shadow-lg">
+                <div class="card-body">
+                  <div [ngSwitch]="address.address.address_type">
+                    <div class="card-title" *ngSwitchCase="'home_address'">HOME</div>
+                    <div class="card-title" *ngSwitchCase="'work_address'">WORK</div>
+                  </div>
+                  <!-- <h5 class="card-title">{{address.address.address_type}}</h5> -->
+                  <p class="card-text">{{address.address.house_no}} {{address.address.area}}, {{address.address.city}}, {{address.address.state}} - {{address.address.pincode}}</p>
+                  <p class="card-text">{{address.address.mobile_no}}</p>
+                </div>
+                <div class="row">
+                  <div class="col-6 mr-0 pr-0">
+                    <button class="btn border-radius-none btn-warning btn-block">Edit<i class="fa fa-pencil pl-2"
+                        aria-hidden="true"></i></button>
+                  </div>
+                  <div class="col-6 ml-0 pl-0">
+                    <button class="btn border-radius-none btn-danger btn-block" (click)="removeCustomerAddress(address.id)">Remove<i class="fa fa-trash pl-2"
+                        aria-hidden="true"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="col-lg-4 m-1">
+              <div class="card border-radius-none shadow shadow-lg">
+                <div class="card-body">
+                  <h5 class="card-title">Work</h5>
+                  <p class="card-text">Bengali Square, Indore, MP,452001</p>
+                </div>
+                <div class="row">
+                  <div class="col-6 mr-0 pr-0">
+                    <button class="btn border-radius-none btn-warning btn-block">Edit<i class="fa fa-pencil pl-2"
+                        aria-hidden="true"></i></button>
+                  </div>
+                  <div class="col-6 ml-0 pl-0">
+                    <button class="btn border-radius-none btn-danger btn-block">Remove<i class="fa fa-trash pl-2"
+                        aria-hidden="true"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+          <div id="myModal" class="modal fade">
+            <form [formGroup]="newAddressForm" (ngSubmit)="addAddress()">
+            <div class="modal-dialog modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Add a new address</h5>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label>Pincode <span class="text-danger">*</span></label>
+                        <input type="text" formControlName="pincode" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label>House no.,Building name <span class="text-danger">*</span></label>
+                        <input type="text" formControlName="house_no" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label>Road Name, Area, Colony <span class="text-danger">*</span></label>
+                        <input type="text" formControlName="area" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label>City <span class="text-danger">*</span></label>
+                        <input type="text" formControlName="city" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label>State <span class="text-danger">*</span></label>
+                        <input type="text" formControlName="state" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label>Name <span class="text-danger">*</span></label>
+                        <input type="text" formControlName="name" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label>Mobile Number <span class="text-danger">*</span></label>
+                        <input type="tel" formControlName="mobile_no" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="form-group">
+                          <label>Address Type <span class="text-danger">*</span></label>
+                        <div class="custom-control custom-radio mb-3">
+                          <input type="radio" class="custom-control-input" id="customCheck4" name="address_type"
+                            formControlName="address_type" value="home_address">
+                          <label class="custom-control-label" for="customCheck4">Home Address
+                          </label>
+                        </div>
+                        <div class="custom-control custom-radio mb-3">
+                          <input type="radio" class="custom-control-input" id="customCheck5" name="address_type"
+                            formControlName="address_type" value="work_address">
+                          <label class="custom-control-label" for="customCheck5">Work / Office Address
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+              </div>
+            </div>
+        </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,8 @@ export const ROUTES: RouteInfo[] = [
 
     { path: '/admin/dashboard/customer', title: 'Customer', icon: 'ft-users', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
 
+    { path: '/admin/dashboard/order', title: 'Orders', icon: 'ft-box', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+
     { path: '/admin/dashboard/category', title: 'Category', icon: 'ft-plus', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
 
     { path: '/admin/dashboard/setting', title: 'Setting', icon: 'ft-settings', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },

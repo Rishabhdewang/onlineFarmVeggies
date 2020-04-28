@@ -82,8 +82,6 @@ export class UserProfileComponent implements OnInit {
         this.loader.stop();
       },
       error => {
-        console.log(error);
-        // Swal.fire("Opps... Login Failed","Please provide correct credential","error");
         this.loader.stop();
       }
     );
@@ -104,12 +102,9 @@ export class UserProfileComponent implements OnInit {
       (success: any) => {
         this.router.navigateByUrl(`/admin/dashboard/user-profile`);
         Swal.fire("Profile Updated","","success");
-        // alertFunctions.typeSuccess();
         this.loader.stop();
       },
       error => {
-        console.log(error);
-        Swal.fire("Update Failed","Something went wrong. Try after sometime !!","error");
         this.loader.stop();
       }
     );

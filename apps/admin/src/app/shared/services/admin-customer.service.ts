@@ -29,7 +29,7 @@ export class AdminCustomerService {
       );
     }
 
-    getFarmerDetail(id){
+    customerDetail(id){
       return this.http.get(this.admin_base_url + "customer/"+id, { observe: "response" }).pipe(
         retry(3),
         catchError(this.errorHandler.handleError)
@@ -41,6 +41,12 @@ export class AdminCustomerService {
             retry(3),
             catchError(this.errorHandler.handleError)
           );
+    }
+    removeCustomer(id){
+      return this.http.delete(this.admin_base_url + "removeCustomer/"+id, { observe: "response" }).pipe(
+        retry(3),
+        catchError(this.errorHandler.handleError)
+      );
     }
 
 }

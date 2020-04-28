@@ -7,7 +7,7 @@ export const ROUTES: RouteInfo[] = [
         path: '/farmer/dashboard/dashboard', title: 'Dashboard', icon: 'ft-home', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
     },
     { path: '/farmer/dashboard/product-list', title: 'Products List', icon: 'ft-list', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-    { path: '/farmer/dashboard/product-list', title: 'Orders', icon: 'ft-box', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+    { path: '/farmer/dashboard/orders', title: 'Orders', icon: 'ft-box', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
     { path: '/farmer/dashboard/add-product', title: 'Add Product', icon: 'ft-plus', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
     { path: '/farmer/dashboard/setting', title: 'Setting', icon: 'ft-settings', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
     { path: '', title: 'Account', icon: 'ft-user', class: 'has-sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [

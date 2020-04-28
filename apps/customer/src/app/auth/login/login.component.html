@@ -3,7 +3,7 @@
   <div class="container p-0">
     <div class="row full-height-vh m-3">
       <div class="col-12 d-flex align-items-center justify-content-center">
-        <div class="card">
+        <div class="card shadow shadow-big">
           <div class="card-content">
             <div class="card-body login-img">
               <div class="row m-0">
@@ -16,7 +16,7 @@
                   <p class="card-text mb-3">
                     Welcome back, please login to your account.
                   </p>
-                  <form [formGroup]="loginForm">
+                  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                     <input type="email" class="form-control mb-2" (keyup)="check_login()" placeholder="Email"
                       formControlName="email" required />
                     <div 
@@ -28,7 +28,7 @@
                       Please provide valid email id
                     </div>
                     <input type="password" class="form-control mb-2" (keyup)="check_login()" placeholder="Password"
-                      formControlName="password" required />
+                    formControlName="password" required />
                     <div
                       *ngIf="loginForm.controls['password'].hasError('required')  && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
                       class="error mb-2 text-danger">

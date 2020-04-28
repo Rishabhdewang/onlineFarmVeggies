@@ -26,7 +26,7 @@ export class FarmerDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.farmerDetail()
+    this.farmerDetail();
   }
 
   changeVerification(status){
@@ -42,18 +42,10 @@ export class FarmerDetailComponent implements OnInit {
       this.loader.start();
       this.farmerService.verification(formData).subscribe(
         (success: any) => {
-          // console.log("this is success: " + JSON.stringify(success));
-
-          // localStorage.setItem("token", success.headers.get("Authorization"));
-          // console.log(localStorage.getItem('token'));
           this.farmerDetail();
-          // Swal.fire("Product","Welcome to Dashbord","success");
-          // alertFunctions.typeSuccess();
           this.loader.stop();
         },
         error => {
-          console.log(error);
-          // Swal.fire("Opps... Login Failed","Please provide correct credential","error");
           this.loader.stop();
         }
       );
@@ -65,15 +57,8 @@ export class FarmerDetailComponent implements OnInit {
     this.loader.start();
       this.farmerService.getFarmerDetail(this.farmerId).subscribe(
         (success: any) => {
-          // console.log("this is success: " + JSON.stringify(success));
-
-          // localStorage.setItem("token", success.headers.get("Authorization"));
-          // console.log(localStorage.getItem('token'));
           console.log(success.body.data);
           this.farmer = success.body.data[0];
-          // this.router.navigateByUrl(`/dashboard/product`);
-          // Swal.fire("Product","Welcome to Dashbord","success");
-          // alertFunctions.typeSuccess();
           this.loader.stop();
         },
         error => {
@@ -94,8 +79,6 @@ export class FarmerDetailComponent implements OnInit {
           this.loader.stop();
         },
         error => {
-          console.log(error);
-          // Swal.fire("Opps... Login Failed","Please provide correct credential","error");
           this.loader.stop();
         }
       );

@@ -298,7 +298,7 @@
               "node_modules/sweetalert2/dist/sweetalert2.min.css",
               "node_modules/angular-calendar/scss/angular-calendar.scss",
               "node_modules/dragula/dist/dragula.css",
-              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

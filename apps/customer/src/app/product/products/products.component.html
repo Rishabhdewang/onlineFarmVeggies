@@ -6,15 +6,15 @@
               <div class="col col-lg-12">
                 <img
                 src="{{product.product_image}}"
-                alt="jacket" class="img-item">
+                alt="image" class="img-item" height="150" width="150">
               </div>
         <div class="col col-lg-12">
-            <div class="m-3">
+            <div class="m-1">
           <h3>{{product.productName}}</h3>
           <p class="descroption">{{product.productCategory}}</p>
-          <h5>$290</h5>
+          <h5><span class="inr-sign"></span> {{product.productPrices[0].rate}}</h5>
             </div>
-          <div class="m-2" ><button class="btn btn-success mb-3 ml-4">Add to Cart</button></div>
+          <div class="m-1" ><button class="btn btn-success mb-3 ml-4">Add to Cart</button></div>
         </div>
         </div>
       </div>
@@ -104,6 +104,6 @@
       </div>
     </div> -->
     </div>
-    <button class="loadmore col-lg-9">Load More</button>
+    <!-- <button class="loadmore col-lg-9">Load More</button> -->
   </div>
 </div>

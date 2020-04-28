@@ -10,5 +10,17 @@
 .bs-example{
     margin-top: .1rem;
     width: 100%;
+    margin-bottom: .1rem;
 	// margin: 20px;
+}
+img{
+    width: 100vw;
+    height: 300px;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    img{
+        width: 100vw;
+        height: 150px;
+    }
 }

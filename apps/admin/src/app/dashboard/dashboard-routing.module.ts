@@ -7,6 +7,9 @@ import { FarmersComponent } from './farmers/farmers.component';
 import { FarmerDetailComponent } from './farmer-detail/farmer-detail.component';
 import { CategoryComponent } from './category/category.component';
 import { CustomerComponent } from './customer/customer.component';
+import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
+import { OrdersComponent } from './orders/orders.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
 
 const routes: Routes = [
   {
@@ -48,6 +51,13 @@ const routes: Routes = [
         }
       },
       {
+        path : "customer-detail/:id",
+        component : CustomerDetailComponent,
+        data : {
+          title : "Customer Detail"
+        }
+      },
+      {
         path : "category",
         component : CategoryComponent,
         data : {
@@ -59,6 +69,20 @@ const routes: Routes = [
         component : CustomerComponent,
         data : {
           title : "Customer"
+        }
+      },
+      {
+        path : "order",
+        component : OrdersComponent,
+        data : {
+          title : "Orders"
+        }
+      },
+      {
+        path : "order-detail/:id",
+        component : OrderDetailComponent,
+        data : {
+          title : "Order Details"
         }
       }
     ]

@@ -24,33 +24,27 @@ export class ErrorHandlerService {
 
     handleError(error: HttpErrorResponse) {
         let errorMessage: any;
-        console.log(error);
+        // console.log(error);
         if (error.error instanceof ErrorEvent) {
-            errorMessage = error.error.message;
-        } else {
-            // console.error(
-            //     `Backend returned code ${error.status}, ` +
-            //     `body was: ${error.error.message.message}`
-            // );
-            errorMessage = error.message || error.message;
+            errorMessage = error.error;
             Swal.fire("Error",errorMessage,"error");
+        }
+        else {
+            if(error.status === 406){
+            errorMessage = error.error.message;
+            Swal.fire(errorMessage,"","error");
+            }
+            else{
+            errorMessage = error.error;
+            Swal.fire("Server error",errorMessage,"error");
+            }
         }
         return throwError(error);
     }
 
     routeAccordingToError(error) {
-        // generic error message toast
-        // this.messageService.add({
-        //     severity: 'error',
-        //     summary: `${error.error.message}`
-        // });
-        Swal.fire("Error",error.error.message,"error");
-        // if verification link is not valid
-        if (
-            error.error.message ===
-            'Either invalid link or link is expired or already used' ||
-            error.error.statusCode === 401
-        ) {
+        Swal.fire("Error",error.error,"error");
+        if (error.status === 401) {
             setTimeout(() => {
                 this.redirectToLogin();
             }, 3000);
@@ -58,7 +52,6 @@ export class ErrorHandlerService {
     }
 
     redirectToLogin() {
-        localStorage.removeItem('token');
         this.router.navigateByUrl(`/admin/auth/login`);
     }
 }

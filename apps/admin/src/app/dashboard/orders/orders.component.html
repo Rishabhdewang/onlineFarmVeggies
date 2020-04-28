@@ -1,0 +1,72 @@
+<!--Extended Table starts-->
+<div class="row text-left">
+  <div class="col-12">
+    <!-- <div class="content-header">Product List</div> -->
+    <!-- <p class="content-sub-header"></p> -->
+  </div>
+</div>
+<!--Shopping cart starts-->
+<section id="shopping-cart">
+  <div class="row text-left">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Order List</h4>
+        </div>
+        <div class="card-content">
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="glyphicon glyphicon-search"></i>
+                  </div>
+                  <input type="text" class="form-control" name="searchString" placeholder="Type to search..."
+                    [(ngModel)]="searchString" />
+                </div>
+              </div>
+            </form>
+            <table class="table table-responsive-sm text-center">
+              <thead>
+                <tr>
+                  <th>Order Id</th>
+                  <th>Order Status</th>
+                  <th>Payment Mode</th>
+                  <th>Payment Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <td></td>
+              <tbody>
+                <tr *ngFor="let order of orders | paginate: { itemsPerPage: 5, currentPage: p}">
+                  <td class="pt-3">{{order.id}}</td>
+                  <td class="pt-3">{{order.orderStatus}}</td>
+                  <td class="pt-3">{{order.paymentMode}}</td>
+                  <td class="pt-3">{{order.paymentStatus}}</td>
+                  <td class="pt-3">
+                    <a class="text-decoration-none" [routerLink]="['/admin/dashboard/order-detail',order.id]">
+                      <i class="fa fa-arrow-circle-o-right font-medium-4" aria-hidden="true"></i>
+                    </a>
+                    <a class="danger ml-2" data-original-title="" title="">
+                      <i class="ft-trash font-medium-4"></i>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Shopping cart ends-->

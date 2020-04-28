@@ -6,6 +6,8 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { UserProfileComponent } from "./user-profile/user-profile.component";
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { OrdersComponent } from './orders/orders.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
 
 
 const routes: Routes = [
@@ -52,6 +54,20 @@ const routes: Routes = [
         component : ProductDetailComponent,
         data:{
           title : "Product Detail"
+        }
+      },
+      {
+        path : "orders",
+        component : OrdersComponent,
+        data:{
+          title : "Orders"
+        }
+      },
+      {
+        path : "order-detail/:id",
+        component : OrderDetailComponent,
+        data:{
+          title : "Order Detail"
         }
       }
     ]

@@ -13,9 +13,12 @@
   
     <div class="row">
       <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
-        <div class="card card-content d-flex justify-content-between">
-          <img src="./assets/img/portrait/small/avatar-s-3.png" alt="Brek" width="300" class="p-2 shadow-z-3">
+        <div *ngIf="farmer.profile_pic" class="card card-content d-flex justify-content-between">
+          <img src="{{farmer.profile_pic}}" alt="Brek" width="300" class="p-2 shadow-z-3">
       </div>
+      <div *ngIf="!farmer.profile_pic" class="card card-content d-flex justify-content-between">
+        <img src="../../../assets/img/portrait/avatars/avatar-07.png" alt="Brek" width="300" class="p-2 shadow-z-3">
+    </div>
       </div>
       <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
         <div class=" card shadow-big align-self-center">
@@ -37,8 +40,8 @@
                 <button class="btn btn-raised btn-warning" (click)="removeFarmer()">Remove</button>
               <!-- </div>
               <div class="col"> -->
-                <button *ngIf="(farmer.isAdminVerified === 'false')" class="btn btn-raised btn-success ml-2" (click)="changeVerification('true')">Verify</button>
-                <button *ngIf="(farmer.isAdminVerified === 'true')" class="btn btn-raised btn-danger ml-2" (click)="changeVerification('false')">Unverify</button>
+                <button *ngIf="(farmer.isAdminVerified === false)" class="btn btn-raised btn-success ml-2" (click)="changeVerification('true')">Verify</button>
+                <button *ngIf="(farmer.isAdminVerified === true)" class="btn btn-raised btn-danger ml-2" (click)="changeVerification('false')">Unverify</button>
               </div>
             </div>
           </div>

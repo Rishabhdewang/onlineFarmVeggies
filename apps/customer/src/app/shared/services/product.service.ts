@@ -49,4 +49,25 @@ export class CustomerProductService {
       );
     }
 
+    getBestSeller(){
+      return this.http.get(this.customer_url + "bestSeller", { observe: "response" }).pipe(
+        retry(3),
+        catchError(this.errorHandler.handleError)
+      );
+    }
+
+    getOffers(){
+      return this.http.get(this.customer_url + "offers", { observe: "response" }).pipe(
+        retry(3),
+        catchError(this.errorHandler.handleError)
+      );
+    }
+
+    getCategoryProducts(category){
+      return this.http.get(this.customer_url + "categoryItem/"+category, { observe: "response" }).pipe(
+        retry(3),
+        catchError(this.errorHandler.handleError)
+      );
+    }
+
 }

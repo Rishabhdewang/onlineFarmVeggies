@@ -1,0 +1,53 @@
+<!-- Horizontal cards start -->
+<section id="horizontal-examples">
+    <div class="row">
+      <div class="col-12 mt-3 mb-1">
+        <div class="content-header">Customer Detail</div>
+        <!-- <p class="content-sub-header">Cards with horizontal image.</p> -->
+      </div>
+      <div class="col-12">
+          <a class="text-decoration-none" [routerLink]="['/admin/dashboard/customer']"> <button class="btn btn-raised btn-outline-dark">Back</button>
+          </a>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+      <div *ngIf="customer.profile_pic" class="card card-content d-flex justify-content-between">
+        <img src="{{customer.profile_pic}}" alt="Brek" width="180" class="">
+      </div>
+      <div *ngIf="!customer.profile_pic" class="card card-content d-flex justify-content-between">>
+        <img src="../../../assets/img/portrait/avatars/avatar-07.png" alt="Brek" width="180" class="">
+      </div>
+      </div>
+      <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+        <div class=" card shadow-big align-self-center">
+          <div class="px-3 p-3">
+            <div *ngIf="customer.name">
+              <h5 class="font-weight-bolder m-0 p-0">Name</h5>
+              <h4>{{customer.name}}</h4>
+            </div>
+            <div *ngIf="customer.email">
+              <h5 class="font-weight-bolder m-0 p-0">Email</h5>
+              <h4>{{customer.email}}</h4>
+            </div>
+            <div *ngIf="customer.address">
+              <h5 class="font-weight-bolder m-0 p-0">Address</h5>
+              <h4>{{customer.address.address1}}, {{customer.address.city}} ({{customer.address.state}}) {{customer.address.pinCode}}</h4>
+            </div>
+            <div class="row mt-3">
+              <div class="col">
+                <button class="btn btn-raised btn-warning" (click)="removeCustomer()">Remove</button>
+              <!-- </div>
+              <div class="col"> -->
+                <button *ngIf="(customer.isEmailVerified === 'false')" class="btn btn-raised btn-success ml-2" (click)="changeVerification('true')">Verify</button>
+                <button *ngIf="(customer.isEmailVerified === 'true')" class="btn btn-raised btn-danger ml-2" (click)="changeVerification('false')">Unverify</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- // Horizontal cards end -->
+  

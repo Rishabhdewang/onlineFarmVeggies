@@ -1,0 +1,91 @@
+.image {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-right: 0 !important;
+}
+
+.item {
+  overflow-y: scroll;
+  height: 300px !important;
+  scroll-behavior: smooth;
+}
+
+.img-wrapper {
+  width: 150px;
+}
+
+.item-price {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: 300px !important;
+  margin-right: 300px !important;
+  height: 310px !important;
+}
+
+.btn-center {
+  position: relative;
+  transform: translate(35%, 45%);
+}
+
+button:active {
+  outline: none !important;
+  // border: none !important;
+}
+
+button:focus {
+  outline: 0 !important;
+  border: none !important;
+  box-shadow: none;
+}
+
+.custom-checkbox .custom-control-label::before {
+  margin-top: 1rem;
+}
+
+.custom-checkbox .custom-control-label::after {
+  margin-top: 1rem;
+}
+.address-btn {
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .image {
+    padding-right: 0 !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0 !important;
+  }
+
+  .img-wrapper {
+    width: 120px;
+  }
+
+  .item {
+    margin: 0;
+  }
+
+  .checkout-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+  }
+
+  .card {
+    margin: 15px !important;
+  }
+  
+}

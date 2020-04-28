@@ -12,6 +12,10 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
 import { RegisterComponent } from './register/register.component';
+import { NetworkConnectionComponent } from './network-connection/network-connection.component';
+import { NetworkService } from '../shared/services/network.service';
+import { NetworkGuardService } from '../shared/services/network-guard.service';
+import { ErrorPageComponent } from './error/error-page.component';
 
 
 @NgModule({
@@ -29,7 +33,10 @@ import { RegisterComponent } from './register/register.component';
         ResetPasswordComponent,
         ForgotPasswordComponent,
         VerifyOtpComponent,
-        RegisterComponent
-    ]
+        RegisterComponent,
+        NetworkConnectionComponent,
+        ErrorPageComponent
+    ],
+    providers:[NetworkService,NetworkGuardService]
 })
 export class AuthModule { }

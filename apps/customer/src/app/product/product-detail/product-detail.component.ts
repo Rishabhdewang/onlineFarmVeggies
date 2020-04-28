@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerProductService } from '../../shared/services/product.service';
 import Swal from "sweetalert2";
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { CartService } from '../../shared/services/cart.service';
+import { AuthService } from '../../shared/auth/auth.service';
 
 @Component({
   selector: 'online-farm-veggies-product-detail',
@@ -16,7 +18,9 @@ export class ProductDetailComponent implements OnInit {
   product;
   constructor(
     private location: Location,
+    private authService : AuthService,
     private productService : CustomerProductService,
+    private cartService : CartService,
     private router : Router,
     private loader : NgxUiLoaderService,
     private activatedRoute: ActivatedRoute
@@ -26,6 +30,30 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.productDetail();
+  }
+
+  AddToCart(){
+    console.log(this.productId);
+    if(this.product){
+      let formData = {
+        "productId" : Number(this.product.id),
+      }
+      this.loader.start();
+      this.cartService.addToCart(formData).subscribe(
+        (success: any) => {
+          Swal.fire("Item Added to Cart","","success");
+          // this.router.navigateByUrl(`/`);
+          this.loader.stop();
+        },
+        error => {
+          console.log(error);
+          this.authService.logout();
+          this.router.navigateByUrl(`/auth/login`);
+          Swal.fire("Login first","Please login to add item to cart","error");
+          this.loader.stop();
+        }
+      );
+    }
   }
 
   productDetail(){

@@ -10,6 +10,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { OffersComponent } from './offers/offers.component';
 import { CategoryComponent } from './category/category.component';
 import { CustomerProductService } from '../shared/services/product.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { CustomerProductService } from '../shared/services/product.service';
         HomeRoutingModule,
         FormsModule,
         ReactiveFormsModule,
-        SharedModule
+        SharedModule,
+        NgbModule
     ],
     exports : [
         BannerComponent,

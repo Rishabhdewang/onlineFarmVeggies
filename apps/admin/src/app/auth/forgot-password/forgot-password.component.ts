@@ -39,20 +39,12 @@ export class ForgotPasswordComponent implements OnInit {
       this.loader.start();
       this.authService.forgotPassword(forgotData).subscribe(
         (success: any) => {
-          // console.log("this is success: " + JSON.stringify(success));
-
-          // localStorage.setItem("token", success.headers.get("Authorization"));
-          // console.log(localStorage.getItem('token'));
-
+          localStorage.setItem("email",forgotData.email);
           this.router.navigateByUrl(`/admin/auth/verifyOTP`);
           Swal.fire("Email sent","You will get OTP on your email.Please check it.","success");
-          // alertFunctions.typeSuccess();
           this.loader.stop();
         },
         error => {
-          console.log(error);
-
-          Swal.fire("Opps... Email not sent","Please provide correct credential","error");
           this.loader.stop();
         }
       );

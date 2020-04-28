@@ -50,14 +50,14 @@ export class AuthService {
   }
 
   verifyotp(data){
-    return this.http.post(this.farmer_base_url + "farmerVerifyOTP", data, { observe: "response" }).pipe(
+    return this.http.post(this.farmer_base_url + "verifyOTP", data, { observe: "response" }).pipe(
       retry(3),
       catchError(this.errorHandler.handleError)
     );
   }
 
   resetPassword(data){
-    return this.http.post(this.farmer_base_url + "ResetFarmerPassword", data, { observe: "response" }).pipe(
+    return this.http.post(this.farmer_base_url + "resetPassword", data, { observe: "response" }).pipe(
       retry(3),
       catchError(this.errorHandler.handleError)
     );

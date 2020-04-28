@@ -29,24 +29,18 @@ export class VerifyOtpComponent implements OnInit {
   onSubmit(){
     console.log(this.otpForm.value);
     if(this.otpForm.valid){
-      let otpData = this.otpForm.value;
+      let otpData = {
+        otp : this.otpForm.value.otp,
+        email : localStorage.getItem('email')
+      }
       this.loader.start();
       this.authService.verifyotp(otpData).subscribe(
         (success: any) => {
-          // console.log("this is success: " + JSON.stringify(success));
-
-          localStorage.setItem("token", success.headers.get("Authorization"));
-          console.log(localStorage.getItem('token'));
-
           this.router.navigateByUrl(`/farmer/auth/resetPassword`);
           Swal.fire("Verified","OTP is Verified","success");
-          // alertFunctions.typeSuccess();
           this.loader.stop();
         },
         error => {
-          console.log(error);
-
-          Swal.fire("Opps... Wrong OTP","Please provide correct OTP","error");
           this.loader.stop();
         }
       );

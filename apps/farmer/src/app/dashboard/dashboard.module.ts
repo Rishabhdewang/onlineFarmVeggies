@@ -18,6 +18,9 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProfileService } from './../shared/services/profile.service';
+import { OrdersComponent } from './orders/orders.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { OrderService } from '../shared/services/order.service';
 
 
 
@@ -39,8 +42,10 @@ import { ProfileService } from './../shared/services/profile.service';
     ProductDetailComponent,
     UserProfileComponent,
     DashboardComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    OrdersComponent,
+    OrderDetailComponent
     ],
-    providers: [ProductService,ProfileService]
+    providers: [ProductService,ProfileService,OrderService]
 })
 export class DashboardModule { }

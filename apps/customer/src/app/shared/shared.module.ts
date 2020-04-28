@@ -10,6 +10,7 @@ import { PerfectScrollbarModule } from "ngx-perfect-scrollbar";
 import { FooterComponent } from "./footer/footer.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { SidebarComponent } from "./sidebar/sidebar.component";
+import { CartService } from './services/cart.service';
 
 @NgModule({
     exports: [
@@ -31,6 +32,7 @@ import { SidebarComponent } from "./sidebar/sidebar.component";
         FooterComponent,
         NavbarComponent,
         SidebarComponent
-    ]
+    ],
+    providers : [CartService]
 })
 export class SharedModule { }

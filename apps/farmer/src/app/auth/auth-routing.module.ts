@@ -5,6 +5,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
 import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
 import { RegisterComponent } from './register/register.component';
+import { ErrorPageComponent } from './error/error-page.component';
 
 // import { Dashboard2Component } from "./dashboard2/dashboard2.component";
 
@@ -45,6 +46,13 @@ const routes: Routes = [
         component : VerifyOtpComponent,
         data : {
           title : "Verify OTP"
+        }
+      },
+      {
+        path: "error",
+        component : ErrorPageComponent,
+        data : {
+          title : "Error"
         }
       }
     ]

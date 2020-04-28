@@ -59,7 +59,7 @@ export class AddProductComponent implements OnInit {
   }
 
   uploadFile(event) {
-    this.image = event.target.files[0],name;
+    this.image = event.target.files[0];
     let label = document.getElementById("custom-file-label");
     label.innerHTML = this.image;
   }
@@ -94,20 +94,11 @@ export class AddProductComponent implements OnInit {
       this.loader.start();
       this.productService.product(formData).subscribe(
         (success: any) => {
-          // console.log("this is success: " + JSON.stringify(success));
-
-          // localStorage.setItem("token", success.headers.get("Authorization"));
-          // console.log(localStorage.getItem('token'));
-
-          this.router.navigateByUrl(`/dashboard/add-product`);
+          this.router.navigateByUrl(`/farmer/dashboard/add-product`);
           Swal.fire("Prodect Added Successfully","","success");
-          // alertFunctions.typeSuccess();
           this.loader.stop();
         },
         error => {
-          console.log(error);
-
-          Swal.fire("Enter Complete Information","","error");
           this.loader.stop();
         }
       );
