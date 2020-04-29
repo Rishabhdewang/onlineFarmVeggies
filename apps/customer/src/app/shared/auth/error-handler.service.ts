@@ -35,7 +35,7 @@ export class ErrorHandlerService {
             this.router.navigateByUrl("/auth/login");
             }
             else{
-            errorMessage = error.error;
+            errorMessage = error.error.message;
             Swal.fire("Server error",errorMessage,"error");
             }
         }

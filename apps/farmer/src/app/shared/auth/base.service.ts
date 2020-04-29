@@ -12,7 +12,7 @@ export class BaseService {
   // on live
   // public base_url: string = 'http://13.234.120.28/api/';
   public admin_url: string = 'https://onlinefarmveggiesapi.herokuapp.com/api/admin/';
-  public farmer_url: string = 'https://onlinefarmveggiesapi.herokuapp.com/api/farmer/';
+  public farmer_url: string = 'https://onlinefarmveggiesapi.herokuapp.com/api/farmer/';  
 
   constructor(private http: HttpClient) { }
 }

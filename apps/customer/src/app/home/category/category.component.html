@@ -5,7 +5,10 @@
 </div> -->
 
 <div class="scrolling-wrapper">
+    <div class="card shadow shadow-big" [routerLink]="['/product/products']">
+        <div class="centered">All Products</div>
+    </div>
     <div class="card shadow shadow-big" *ngFor="let category of categories" [routerLink]="['/product/category-products',category.categoryName]">
-    <div class="centered">{{category.categoryName}}</div>
+        <div class="centered">{{category.categoryName}}</div>
     </div>
   </div>
