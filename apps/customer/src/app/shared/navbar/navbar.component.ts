@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "./../auth/auth.service";
+import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
 // import { CartService } from '../services/cart.service';
 
 @Component({
@@ -9,9 +11,11 @@ import { AuthService } from "./../auth/auth.service";
 })
 export class NavbarComponent implements OnInit {
 
-  isAuthenticated = false;
+  isAuthenticated;
   constructor(
     private authService : AuthService,
+    private router : Router,
+    private dataService : DataService
     // private cartService : CartService
   ) { }
 

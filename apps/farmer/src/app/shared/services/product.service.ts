@@ -36,15 +36,15 @@ export class ProductService {
       );
     }
 
-    productDetail(data){
-      return this.http.get(this.farmer_base_url + "product/"+data, { observe: "response" }).pipe(
+    removeProduct(id){
+      return this.http.delete(this.farmer_base_url + "product/"+id, { observe: "response" }).pipe(
         retry(3),
         catchError(this.errorHandler.handleError)
       );
     }
 
-    orders(){
-      return this.http.get(this.farmer_base_url + "order", { observe: "response" }).pipe(
+    productDetail(data){
+      return this.http.get(this.farmer_base_url + "product/"+data, { observe: "response" }).pipe(
         retry(3),
         catchError(this.errorHandler.handleError)
       );

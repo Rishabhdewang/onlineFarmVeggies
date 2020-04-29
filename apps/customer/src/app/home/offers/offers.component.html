@@ -1,72 +1,22 @@
 <section *ngIf="isOffer" class="mt-3 mb-3">
-  <h2 class="text-center mt-3 heading">Best Offers <button class="btn btn-success text-bold-600 float-right mr-3">View All<i
-        class="fa fa-arrow-right pl-2" aria-hidden="true"></i></button></h2>
+  <h4 class="text-center mt-3 heading">Best Offers</h4>
 </section>
-<div *ngFor="let offer of offers" class="scrolling-wrapper">
-  <div class="card shadow shadow-big" [routerLink]="['/product/products',offer.id]">
+<div class="scrolling-wrapper">
+  <div  *ngFor="let offer of offers" class="card shadow shadow-big" [routerLink]="['/product/products',offer.id]">
     <div><img
         src="{{offer.product_image}}"
         alt="" srcset="">
     </div>
     <div class="row">
-      <div class="col-12 mt-3">
-        <h5>{{offer.productName}}</h5>
+      <div class="col-12 mt-3 name">
+        <span class="pl-3 pr-2">{{offer.productName}}</span>
       </div>
       <div class="col-12 w-auto"><button class="btn btn-success rating-btn float-left ml-3">4.5 <i class="fa fa-star"
             aria-hidden="true"></i></button>
         <div class="float-left text-center review pl-2">(3443)</div>
         <a href="/" class="like"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
       </div>
-      <div class=" col-12 text-success rate"><span class="inr-sign"></span> {{offer.productPrices[0].rate}}</div>
+      <div class=" col-12 w-auto text-success rate"><span class="inr-sign"></span> {{offer.productPrices[0].rate}} - {{offer.productPrices[0].quantity}} g</div>
     </div>
   </div>
-  <!-- <div class="card shadow shadow-big">
-    <div><img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRD9yXZgibmc42eEp61TjQvzq05g3SdeQghpHNs89Cs1lUlnxlh&usqp=CAU"
-        alt="" srcset="">
-    </div>
-    <div class="row">
-      <div class="col-12 mt-3">
-        <h5>Lorem ipsum dolor</h5>
-      </div>
-      <div class="col-12 w-auto"><button class="btn btn-success rating-btn float-left ml-3">4.5 <i class="fa fa-star"
-            aria-hidden="true"></i></button>
-        <div class="float-left text-center review pl-2">(3443)</div>
-        <a href="/" class="like"><i class="fa fa-heart" aria-hidden="true"></i></a>
-      </div>
-      <div class=" col-12 text-success rate"><span class="inr-sign"></span> 345</div>
-    </div>
-  </div>
-  <div class="card shadow shadow-big">
-    <div><img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRD9yXZgibmc42eEp61TjQvzq05g3SdeQghpHNs89Cs1lUlnxlh&usqp=CAU"
-        alt="" srcset="">
-    </div>
-    <div class="row">
-      <div class="col-12 mt-3">
-        <h5>Lorem ipsum dolor</h5>
-      </div>
-      <div class="col-12 w-auto"><button class="btn btn-success rating-btn float-left ml-3">4.5 <i class="fa fa-star"
-            aria-hidden="true"></i></button>
-        <div class="float-left text-center review pl-2">(3443)</div>
-      </div>
-      <div class=" col-12 text-success rate"><span class="inr-sign"></span> 345</div>
-    </div>
-  </div>
-  <div class="card shadow shadow-big">
-    <div><img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRD9yXZgibmc42eEp61TjQvzq05g3SdeQghpHNs89Cs1lUlnxlh&usqp=CAU"
-        alt="" srcset="">
-    </div>
-    <div class="row">
-      <div class="col-12 mt-3">
-        <h5>Lorem ipsum dolor</h5>
-      </div>
-      <div class="col-12 w-auto"><button class="btn btn-success rating-btn float-left ml-3">4.5 <i class="fa fa-star"
-            aria-hidden="true"></i></button>
-        <div class="float-left text-center review pl-2">(3443)</div>
-      </div>
-      <div class=" col-12 text-success rate"><span class="inr-sign"></span> 345</div>
-    </div>
-  </div> -->
 </div>

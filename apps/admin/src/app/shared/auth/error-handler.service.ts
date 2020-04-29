@@ -30,9 +30,10 @@ export class ErrorHandlerService {
             Swal.fire("Error",errorMessage,"error");
         }
         else {
-            if(error.status === 406){
+            if(error.status === 401){
             errorMessage = error.error.message;
-            Swal.fire(errorMessage,"","error");
+            Swal.fire(errorMessage,"Please login again","error");
+            this.router.navigateByUrl("/admin/auth/login");
             }
             else{
             errorMessage = error.error;

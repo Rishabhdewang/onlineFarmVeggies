@@ -36,7 +36,7 @@ const routes: Routes = [
           {
             path: "shopping-cart",
             component: ShoppingCartComponent,
-            // canActivate: [AuthGuard] ,
+            canActivate: [AuthGuard],
             data:{
               title: "Shopping Cart"
             }
@@ -44,7 +44,7 @@ const routes: Routes = [
           {
             path: "checkout",
             component: CheckoutComponent,
-            // canActivate: [AuthGuard],
+            canActivate: [AuthGuard],
             data :{
               title : "Checkout"
             }
@@ -52,7 +52,7 @@ const routes: Routes = [
           {
             path: "payment",
             component: PaymentComponent,
-            // canActivate: [AuthGuard],
+            canActivate: [AuthGuard],
             data: {
               title: "Payment"
             }

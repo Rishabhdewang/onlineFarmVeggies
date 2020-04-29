@@ -25,10 +25,19 @@ export class ErrorHandlerService {
     handleError(error: HttpErrorResponse) {
         let errorMessage: any;
         if (error.error instanceof ErrorEvent) {
-            errorMessage = error.error.message;
-        } else {
-            errorMessage = error.error.message || error.message;
+            errorMessage = error.error;
             Swal.fire("Error",errorMessage,"error");
+        }
+        else {
+            if(error.status === 401){
+            errorMessage = error.error.message;
+            Swal.fire(errorMessage,"Please login again","error");
+            this.router.navigateByUrl("/auth/login");
+            }
+            else{
+            errorMessage = error.error;
+            Swal.fire("Server error",errorMessage,"error");
+            }
         }
         return throwError(error);
     }

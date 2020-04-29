@@ -56,22 +56,10 @@
   color: white;
 }
 
-.cart {
-  padding: 1.2rem;
-  color: #04773B;
-}
-
-.login {
-  padding: 1.2rem;
-}
 
 .navbar {
   padding: 0 1rem 0 1rem;
   justify-content: center;
-}
-
-.navbar-nav {
-  padding-top: .4rem;
 }
 
 .fav {
@@ -86,5 +74,9 @@
 
   .dropdown {
     display: none;
+  }
+  .nav-link{
+    padding: .4rem .4rem !important;
+    padding-bottom: 1rem !important;
   }
 }

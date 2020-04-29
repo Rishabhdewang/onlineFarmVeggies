@@ -8,6 +8,7 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { ProfileService } from '../../shared/services/profile.service';
 import Swal  from 'sweetalert2';
 import { Router } from '@angular/router';
+import { AuthService } from '../../shared/auth/auth.service';
 
 @Component({
   selector: 'online-farm-veggies-profile',
@@ -25,7 +26,8 @@ export class ProfileComponent implements OnInit {
   constructor(
     private profileService : ProfileService,
     private loader : NgxUiLoaderService,
-    private router : Router
+    private router : Router,
+    private authService : AuthService
   ) { }
 
   profileUpdateForm = new FormGroup({
@@ -112,6 +114,8 @@ export class ProfileComponent implements OnInit {
         this.loader.stop();
       },
       error => {
+        this.router.navigateByUrl("/auth/login");
+        this.authService.logout();
         this.loader.stop();
       }
     );

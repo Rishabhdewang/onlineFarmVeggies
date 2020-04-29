@@ -30,6 +30,7 @@ import {
   FormControl,
   Validators
 } from '@angular/forms';
+import { ProfileService } from '../../shared/services/profile.service';
 
 @Component({
   selector: 'online-farm-veggies-checkout',
@@ -39,6 +40,7 @@ import {
 export class CheckoutComponent implements OnInit {
 
   address = "Bengali Square,Indore,MP,453022";
+  addresses : [];
   itemId;
   cart;
   itemCount = 0;
@@ -48,6 +50,7 @@ export class CheckoutComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private productService: CustomerProductService,
+    private profileService : ProfileService,
     private cartService: CartService,
     private dataService: DataService,
     private router: Router,
@@ -60,6 +63,7 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCart();
+    this.getCustomerAddresses();
   }
 
   getCart() {
@@ -89,6 +93,21 @@ export class CheckoutComponent implements OnInit {
     // console.log(this.address);
     this.router.navigateByUrl('/product/payment');
   }
+
+  getCustomerAddresses(){
+    this.loader.start();
+    this.profileService.getAddresses().subscribe(
+      (success: any) => {
+        this.addresses = success.body.data;
+        // console.log(this.addresses);
+        this.loader.stop();
+      },
+      error => {
+        this.loader.stop();
+      }
+    );
+  }
+
   getPrice() {
     var Price = 0;
     var prices = [];

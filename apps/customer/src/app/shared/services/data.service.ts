@@ -6,6 +6,8 @@ import { CartService } from './cart.service';
 })
 export class DataService {
   private data = {}
+
+  public isAuthenticated;
  
   setData(arg,value){
     this.data[arg] = value;

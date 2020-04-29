@@ -11,6 +11,7 @@ import { FooterComponent } from "./footer/footer.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { SidebarComponent } from "./sidebar/sidebar.component";
 import { CartService } from './services/cart.service';
+import { DataService } from './services/data.service';
 
 @NgModule({
     exports: [
@@ -33,6 +34,6 @@ import { CartService } from './services/cart.service';
         NavbarComponent,
         SidebarComponent
     ],
-    providers : [CartService]
+    providers : [CartService,DataService]
 })
 export class SharedModule { }

@@ -12,6 +12,7 @@ import { CustomerProductService } from '../shared/services/product.service';
 import { CartService } from '../shared/services/cart.service';
 import { PaymentComponent } from './payment/payment.component';
 import { DataService } from '../shared/services/data.service';
+import { ProfileService } from '../shared/services/profile.service';
 
 
 @NgModule({
@@ -33,7 +34,7 @@ import { DataService } from '../shared/services/data.service';
         CheckoutComponent,
         PaymentComponent
     ],
-    providers: [CustomerProductService,CartService,DataService],
+    providers: [CustomerProductService,CartService,DataService,ProfileService],
 })
 
 export class ProductModule {}

@@ -49,4 +49,18 @@ export class ProductListComponent implements OnInit {
         }
       );
     }
+
+  deleteProduct(id){
+    this.loader.start();
+    this.productService.removeProduct(id).subscribe(
+      (success :any) =>{
+        Swal.fire("Product Removed","","success");
+        this.productsList();
+        this.loader.stop();
+      },
+      (error)=>{
+        this.loader.stop()
+      }
+    )
+  }
 }

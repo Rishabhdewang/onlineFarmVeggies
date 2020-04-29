@@ -1,14 +1,7 @@
-<!--Extended Table starts-->
-<div class="row text-left">
-  <div class="col-12">
-    <!-- <div class="content-header">Product List</div> -->
-    <!-- <p class="content-sub-header"></p> -->
-  </div>
-</div>
-<!--Shopping cart starts-->
+
 <section id="shopping-cart">
-  <div class="row text-left">
-    <div class="col-sm-12">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 table-product">
       <div class="card">
         <div class="card-header">
           <h4 class="card-title">Product List</h4>
@@ -26,38 +19,31 @@
                 </div>
               </div>
             </form>
-            <table class="table table-responsive-md text-center">
+            <table class="table table-responsive-sm text-center">
               <thead>
                 <tr>
                   <th>Image</th>
-                  <th>Product Name</th>
-                  <th>Category</th>
-                  <th>Quantity</th>
-                  <th>Actions</th>
+                  <th style="width: 300px;">Product Name</th>
+                  <th style="width: 300px;" >Category</th>
+                  <th >Actions</th>
                 </tr>
               </thead>
-              <td></td>
               <tbody>
-                <tr *ngFor="let product of products | paginate: { itemsPerPage: 5, currentPage: p}">
+                <tr *ngFor="let product of products | paginate: { itemsPerPage: 10, currentPage: p}">
                   <td><img class="media-object round-media" src="{{product.product_image}}"
                       alt="Generic placeholder image" style="height: 65px;" /></td>
                   <td class="pt-3">{{product.productName}}</td>
                   <td class="pt-3">{{product.productCategory}}</td>
-                  <td>{{product.productPrices['quantity']}}</td>
                   <td class="pt-3">
                     <a class="text-decoration-none" [routerLink]="['/farmer/dashboard/productDetail',product.id]">
                       <i class="fa fa-arrow-circle-o-right font-medium-4" aria-hidden="true"></i>
                     </a>
-                    <a class="danger ml-2" data-original-title="" title="">
+                    <a (click)="deleteProduct(product.id)" class="danger ml-2" data-original-title="" title="">
                       <i class="ft-trash font-medium-4"></i>
                     </a>
                   </td>
                 </tr>
                 <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
                   <td>
                     <pagination-controls (pageChange)="p = $event"></pagination-controls>
                   </td>

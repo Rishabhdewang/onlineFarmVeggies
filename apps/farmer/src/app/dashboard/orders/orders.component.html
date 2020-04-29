@@ -1,14 +1,6 @@
-<!--Extended Table starts-->
-<div class="row text-left">
-    <div class="col-12">
-      <!-- <div class="content-header">Product List</div> -->
-      <!-- <p class="content-sub-header"></p> -->
-    </div>
-  </div>
-  <!--Shopping cart starts-->
   <section id="shopping-cart">
     <div class="row text-left">
-      <div class="col-sm-12">
+      <div class="col-sm-12 table-order">
         <div class="card">
           <div class="card-header">
             <h4 class="card-title">Order List</h4>
@@ -36,13 +28,32 @@
                     <th>Actions</th>
                   </tr>
                 </thead>
-                <td></td>
                 <tbody>
                   <tr *ngFor="let order of orders | paginate: { itemsPerPage: 5, currentPage: p}">
                     <td class="pt-3">{{order.id}}</td>
-                    <td class="pt-3">{{order.orderStatus}}</td>
-                    <td class="pt-3">{{order.paymentMode}}</td>
-                    <td class="pt-3">{{order.paymentStatus}}</td>
+                    <td>
+                      <div [ngSwitch]="order.orderStatus">
+                        <div *ngSwitchCase="'placed'">Placed</div>
+                        <div *ngSwitchCase="'canceled'">Canceled</div>
+                        <div *ngSwitchCase="'out-for-delivery'">Out for delivery</div>
+                        <div *ngSwitchCase="'delivered'">Delivered</div>
+                      </div>
+                    </td>
+                    <td>                    
+                      <div [ngSwitch]="order.paymentMode">
+                      <div *ngSwitchCase="'upi'">UPI</div>
+                      <div *ngSwitchCase="'net-banking'">Net Banking</div>
+                      <div *ngSwitchCase="'credit-debit-atm-card'">Credit / Debit / ATM Card</div>
+                      <div *ngSwitchCase="'cod'">Cash on delivery</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div [ngSwitch]="order.paymentStatus">
+                      <div *ngSwitchCase="'pending'">Pending</div>
+                      <div *ngSwitchCase="'confirmed'">Confirmed</div>
+                      <div *ngSwitchCase="'canceled'">Canceled</div>
+                    </div>
+                  </td>
                     <td class="pt-3">
                       <a class="text-decoration-none" [routerLink]="['/farmer/dashboard/order-detail',order.id]">
                         <i class="fa fa-arrow-circle-o-right font-medium-4" aria-hidden="true"></i>

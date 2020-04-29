@@ -4,6 +4,7 @@ import { NgxUiLoaderService } from "ngx-ui-loader";
 import { AuthService } from "../../shared/auth/auth.service";
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
+import { DataService } from '../../shared/services/data.service';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private loader : NgxUiLoaderService,
-    private authService : AuthService
+    private authService : AuthService,
+    // private dataService : DataService
   ) { }
   loginForm = new FormGroup({
     email: new FormControl("", [Validators.required,Validators.email]),
