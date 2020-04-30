@@ -24,6 +24,9 @@ import { CustomerDetailComponent } from './customer-detail/customer-detail.compo
 import { OrdersComponent } from './orders/orders.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { AdminOrderService } from '../shared/services/admin-orders.service';
+import { ProductsComponent } from './products/products.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductService } from '../shared/services/product.service';
 
 
 @NgModule({
@@ -48,8 +51,10 @@ import { AdminOrderService } from '../shared/services/admin-orders.service';
     CustomerComponent,
     CustomerDetailComponent,
     OrdersComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    ProductsComponent,
+    ProductDetailComponent
     ],
-    providers: [ProfileService,AdminFarmerService,AdminCustomerService,AdminOrderService],
+    providers: [ProfileService,AdminFarmerService,AdminCustomerService,AdminOrderService,ProductService],
 })
 export class DashboardModule { }

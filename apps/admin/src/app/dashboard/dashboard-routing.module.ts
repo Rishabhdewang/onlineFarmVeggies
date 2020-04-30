@@ -10,6 +10,8 @@ import { CustomerComponent } from './customer/customer.component';
 import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
 import { OrdersComponent } from './orders/orders.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { ProductsComponent } from './products/products.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 const routes: Routes = [
   {
@@ -48,6 +50,20 @@ const routes: Routes = [
         component : FarmerDetailComponent,
         data : {
           title : "Farmer Detail"
+        }
+      },
+      {
+        path : "product-list",
+        component : ProductsComponent,
+        data : {
+          title : "Product List"
+        }
+      },
+      {
+        path : "product-detail/:id",
+        component : ProductDetailComponent,
+        data : {
+          title : "Product Detail"
         }
       },
       {

@@ -1,0 +1,60 @@
+
+<section id="shopping-cart">
+    <div class="row">
+      <div class="col-lg-12 col-sm-12 table-product">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Product List</h4>
+          </div>
+          <div class="card-content">
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </div>
+                    <input type="text" class="form-control" name="searchString" placeholder="Type to search..."
+                      [(ngModel)]="searchString" />
+                  </div>
+                </div>
+              </form>
+              <table class="table table-responsive-sm text-center">
+                <thead>
+                  <tr>
+                    <th>Image</th>
+                    <th style="width: 300px;">Product Name</th>
+                    <th style="width: 300px;" >Category</th>
+                    <th >Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of products | paginate: { itemsPerPage: 10, currentPage: p}">
+                    <td><img class="media-object round-media" src="{{product.product_image}}"
+                        alt="Generic placeholder image" style="height: 65px;" /></td>
+                    <td class="pt-3">{{product.productName}}</td>
+                    <td class="pt-3">{{product.productCategory}}</td>
+                    <td class="pt-3">
+                      <a class="text-decoration-none" [routerLink]="['/admin/dashboard/product-detail',product.id]">
+                        <i class="fa fa-arrow-circle-o-right font-medium-4" aria-hidden="true"></i>
+                      </a>
+                      <a (click)="deleteProduct(product.id)" class="danger ml-2" data-original-title="" title="">
+                        <i class="ft-trash font-medium-4"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--Shopping cart ends-->
+  

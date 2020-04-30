@@ -11,6 +11,7 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
+
   productId : number;
   product;
   constructor(
@@ -25,7 +26,7 @@ export class ProductDetailComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.productDetail()
+    this.productDetail();
   }
 
   productDetail(){
@@ -42,6 +43,7 @@ export class ProductDetailComponent implements OnInit {
       );
   }
 }
+
 deleteProduct(id){
   this.loader.start();
   this.productService.removeProduct(id).subscribe(
