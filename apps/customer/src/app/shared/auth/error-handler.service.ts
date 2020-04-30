@@ -36,7 +36,7 @@ export class ErrorHandlerService {
             }
             else{
             errorMessage = error.error.message;
-            Swal.fire("Server error",errorMessage,"error");
+            Swal.fire("Error",errorMessage,"warning");
             }
         }
         return throwError(error);

@@ -48,7 +48,7 @@ export class ShoppingCartComponent implements OnInit {
           },
           error => {
             this.router.navigateByUrl('/auth/login');
-            Swal.fire("Please login first to see your cart","","error");
+            Swal.fire("Please login first to see your cart","","warning");
             this.loader.stop();
           }
         );

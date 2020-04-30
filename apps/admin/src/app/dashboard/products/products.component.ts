@@ -33,8 +33,6 @@ export class ProductsComponent implements OnInit {
         this.loader.stop();
       },
       error => {
-        console.log(error);
-        // Swal.fire("Opps... Login Failed","Please provide correct credential","error");
         this.loader.stop();
       }
     );

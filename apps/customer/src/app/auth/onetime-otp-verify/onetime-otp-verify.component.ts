@@ -6,12 +6,11 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
 
 @Component({
-  selector: 'online-farm-veggies-verify-otp',
-  templateUrl: './verify-otp.component.html',
-  styleUrls: ['./verify-otp.component.scss']
+  selector: 'online-farm-veggies-onetime-otp-verify',
+  templateUrl: './onetime-otp-verify.component.html',
+  styleUrls: ['./onetime-otp-verify.component.scss']
 })
-export class VerifyOtpComponent implements OnInit {
-
+export class OnetimeOtpVerifyComponent implements OnInit {
   isSubmitted: boolean;
   public error;
 
@@ -43,8 +42,8 @@ export class VerifyOtpComponent implements OnInit {
       this.loader.start();
       this.authService.verifyotp(otpData).subscribe(
         (success: any) => {
-          this.router.navigateByUrl(`/auth/resetPassword`);
-          Swal.fire("Verified","OTP is Verified","success");
+          this.router.navigateByUrl(`/auth/login`);
+          Swal.fire("Verified","Now you can login","success");
           this.loader.stop();
         },
         error => {

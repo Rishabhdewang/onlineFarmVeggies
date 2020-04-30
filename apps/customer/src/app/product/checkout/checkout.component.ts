@@ -79,9 +79,6 @@ export class CheckoutComponent implements OnInit {
         this.loader.stop();
       },
       error => {
-        console.log(error);
-        // this.router.navigateByUrl('/auth/login');
-        Swal.fire("Please login first to see your cart", "", "error");
         this.loader.stop();
       }
     );

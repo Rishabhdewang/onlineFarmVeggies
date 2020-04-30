@@ -28,16 +28,10 @@ export class CategoryComponent implements OnInit {
     this.loader.start();
     this.customerService.categories().subscribe(
       (success: any) => {
-
-        // this.router.navigateByUrl(`/admin/dashboard/category`);
         this.categories = success.body.data;
-        // console.log(this.categories);
         this.loader.stop();
       },
       error => {
-        console.log(error);
-
-        Swal.fire("Request Failed","Please try again !!!","error");
         this.loader.stop();
       }
     );

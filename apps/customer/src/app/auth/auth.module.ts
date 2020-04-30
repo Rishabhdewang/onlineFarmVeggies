@@ -10,6 +10,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
 import { DataService } from '../shared/services/data.service';
+import { OnetimeOtpVerifyComponent } from './onetime-otp-verify/onetime-otp-verify.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { DataService } from '../shared/services/data.service';
         LoginComponent,
         ForgotPasswordComponent,
         ResetPasswordComponent,
-        VerifyOtpComponent
+        VerifyOtpComponent,
+        OnetimeOtpVerifyComponent
     ],
     providers : [DataService]
 })

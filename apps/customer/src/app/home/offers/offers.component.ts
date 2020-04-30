@@ -27,8 +27,6 @@ export class OffersComponent implements OnInit {
     this.loader.start();
     this.productService.getOffers().subscribe(
       (success: any) => {
-
-        console.log(success.body.data);
         this.offers = success.body.data;
         if(this.offers.length > 0) this.isOffer = true;
         this.loader.stop();

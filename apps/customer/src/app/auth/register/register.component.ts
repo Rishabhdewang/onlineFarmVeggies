@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
 
 
   onSubmit(){
-    console.log(this.registerForm.value);
+    // console.log(this.registerForm.value);
     if(this.registerForm.value.password != this.registerForm.value.confirmPassword){
       Swal.fire("Password don't match","Please enter same password.","warning");
     }
@@ -49,20 +49,12 @@ export class RegisterComponent implements OnInit {
       this.loader.start();
       this.authService.register(registerData).subscribe(
         (success: any) => {
-          // console.log("this is success: " + JSON.stringify(success));
-
-          // localStorage.setItem("token", success.headers.get("Authorization"));
-          // console.log(localStorage.getItem('token'));
-
-          this.router.navigateByUrl(`/auth/login`);
-          Swal.fire("Account Registered","Please login now","success");
-          // alertFunctions.typeSuccess();
+          localStorage.setItem("email",registerData.email);
+          this.router.navigateByUrl(`/auth/verifyonetimeotp`);
+          Swal.fire("Account Created,please verify your account","Please check your email","success");
           this.loader.stop();
         },
         error => {
-          console.log(error);
-
-          Swal.fire("Register Failed","Please provide correct credential","error");
           this.loader.stop();
         }
       );

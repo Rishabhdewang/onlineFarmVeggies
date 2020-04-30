@@ -46,10 +46,9 @@ export class ProductDetailComponent implements OnInit {
           this.loader.stop();
         },
         error => {
-          console.log(error);
           this.authService.logout();
           this.router.navigateByUrl(`/auth/login`);
-          Swal.fire("Login first","Please login to add item to cart","error");
+          Swal.fire("Login first","Please login to add item to cart","warning");
           this.loader.stop();
         }
       );
@@ -67,8 +66,6 @@ export class ProductDetailComponent implements OnInit {
             this.loader.stop();
           },
           error => {
-            console.log(error);
-            // Swal.fire("Opps... Login Failed","Please provide correct credential","error");
             this.loader.stop();
           }
         );

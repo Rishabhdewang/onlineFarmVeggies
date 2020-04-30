@@ -36,9 +36,6 @@ export class FarmerDetailComponent implements OnInit {
         "name" : this.farmer.name,
         "isAdminVerified" : status
       }
-      // formData = JSON.stringify(formData);
-      console.log(formData);
-      
       this.loader.start();
       this.farmerService.verification(formData).subscribe(
         (success: any) => {
@@ -62,8 +59,6 @@ export class FarmerDetailComponent implements OnInit {
           this.loader.stop();
         },
         error => {
-          console.log(error);
-          // Swal.fire("Opps... Login Failed","Please provide correct credential","error");
           this.loader.stop();
         }
       );

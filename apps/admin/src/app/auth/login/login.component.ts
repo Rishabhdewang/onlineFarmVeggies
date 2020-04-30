@@ -40,14 +40,9 @@ export class LoginComponent implements OnInit {
       this.loader.start();
       this.authService.login(loginData).subscribe(
         (success: any) => {
-          // console.log("this is success: " + JSON.stringify(success));
-
           localStorage.setItem("token", success.headers.get("Authorization"));
-          // console.log(localStorage.getItem('token'));
-
           this.router.navigateByUrl(`/admin/dashboard/dashboard`);
           Swal.fire("Logged In","Welcome to Dashbord","success");
-          // alertFunctions.typeSuccess();
           this.loader.stop();
         },
         error => {

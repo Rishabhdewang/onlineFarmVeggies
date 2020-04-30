@@ -25,12 +25,7 @@ export class FarmersComponent implements OnInit {
     this.loader.start();
     this.farmerService.getFarmerList().subscribe(
       (success: any) => {
-        // console.log("this is success: " + JSON.stringify(success));
-
-        // localStorage.setItem("token", success.headers.get("Authorization"));
         this.farmers = success.body.data;
-        
-        console.log(this.farmers);
         this.loader.stop();
       },
       error => {

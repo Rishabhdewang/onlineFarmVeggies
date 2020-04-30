@@ -71,9 +71,6 @@ export class PaymentComponent implements OnInit {
         this.loader.stop();
       },
       error => {
-        console.log(error);
-        // this.router.navigateByUrl('/auth/login');
-        Swal.fire("Please login first to see your cart", "", "error");
         this.loader.stop();
       }
     );
@@ -96,11 +93,9 @@ export class PaymentComponent implements OnInit {
             this.clearCart();
           },
           error => {
-            console.log(error);
             if(error.error.code == 406){
               Swal.fire(error.error.message,"","warning");
             }
-            // Swal.fire("Opps... Login Failed","Please provide correct credential","error");
             this.loader.stop();
           }
         )

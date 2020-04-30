@@ -41,7 +41,7 @@ export class ForgotPasswordComponent implements OnInit {
         (success: any) => {
           localStorage.setItem("email",forgotData.email);
           this.router.navigateByUrl(`/admin/auth/verifyOTP`);
-          Swal.fire("Email sent","You will get OTP on your email.Please check it.","success");
+          Swal.fire("Email sent","You will get OTP on your email.","success");
           this.loader.stop();
         },
         error => {

@@ -27,8 +27,6 @@ export class BestSellerComponent implements OnInit {
     this.loader.start();
     this.productService.getBestSeller().subscribe(
       (success: any) => {
-
-        // console.log(success.body.data);
         this.bestSellers = success.body.data;
         if(this.bestSellers.length > 0) this.isBestSeller = true;
         this.loader.stop();

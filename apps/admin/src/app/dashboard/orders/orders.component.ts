@@ -28,7 +28,6 @@ export class OrdersComponent implements OnInit {
     this.loader.start();
     this.orderService.getOrderList().subscribe(
       (success: any) => {
-        console.log(success.body.data);
         this.orders = success.body.data;
         this.loader.stop();
       },

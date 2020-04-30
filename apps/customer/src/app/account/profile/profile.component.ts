@@ -125,7 +125,6 @@ export class ProfileComponent implements OnInit {
     this.profileService.orders().subscribe(
       (success: any) => {
         this.orders = success.body.data;
-        // console.log(this.orders);
         this.loader.stop();
       },
       error => {

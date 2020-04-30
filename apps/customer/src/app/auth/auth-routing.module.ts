@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
+import { OnetimeOtpVerifyComponent } from './onetime-otp-verify/onetime-otp-verify.component';
 
 const routes: Routes = [
   {
@@ -43,6 +44,13 @@ const routes: Routes = [
         component: VerifyOtpComponent,
         data: {
           title : "Verify OTP"
+        }
+      },
+      {
+        path: "verifyonetimeotp",
+        component: OnetimeOtpVerifyComponent,
+        data: {
+          title : "Verify One Time OTP"
         }
       }
     ]
