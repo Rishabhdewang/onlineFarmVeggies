@@ -86,6 +86,10 @@ button:focus {
   color: red;
   text-decoration: none !important;
 }
+.btn-center{
+    margin-left: 30px;
+}
+
 
 @media (min-width: 320px) and (max-width: 480px) {
   .heading {
@@ -132,4 +136,8 @@ button:focus {
   .items{
     padding: 0;
   }
+  .btn-center{
+    margin-top: 10px;
+    margin-left: 0px;
+}
 }
