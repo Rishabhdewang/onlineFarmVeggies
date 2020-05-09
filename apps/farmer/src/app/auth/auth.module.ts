@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
 import { RegisterComponent } from './register/register.component';
 import { ErrorPageComponent } from './error/error-page.component';
+import { OnetimeOtpVerifyComponent } from './onetime-otp-verify/onetime-otp-verify.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ErrorPageComponent } from './error/error-page.component';
         ForgotPasswordComponent,
         VerifyOtpComponent,
         RegisterComponent,
-        ErrorPageComponent
+        ErrorPageComponent,
+        OnetimeOtpVerifyComponent
     ]
 })
 export class AuthModule { }

@@ -86,6 +86,12 @@ export class AuthService {
     );
   }
 
+  sendContactEmail(data){
+    return this.http.post(this.customer_url + "sendEmail",data,{observe : "response"}).pipe(
+      retry(3),
+      catchError(this.errorHandler.handleError)
+    );
+  }
   // oneTimeVerification(data){
   //   return this.http.post(this.customer_url + "oneTimeVerify",data, {observe : "response"}).pipe(
   //     retry(3),

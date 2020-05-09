@@ -14,6 +14,8 @@ export class ProductsComponent implements OnInit {
 
   category;
   products : [];
+  itemCount;
+  itemsAvailable : boolean = false;
   constructor(
     private productService : CustomerProductService,
     private router : Router,
@@ -48,9 +50,10 @@ export class ProductsComponent implements OnInit {
       this.loader.start();
       this.productService.getCategoryProducts(this.category).subscribe(
       (success: any) => {
-
-        console.log(success.body.data);
         this.products = success.body.data;
+        console.log(this.products);
+        this.itemCount = this.products.length;
+        if(this.itemCount > 0) this.itemsAvailable = true;
         this.loader.stop();
       },
       error => {
@@ -62,9 +65,9 @@ export class ProductsComponent implements OnInit {
     this.loader.start();
     this.productService.products().subscribe(
       (success: any) => {
-
-        console.log(success.body.data);
         this.products = success.body.data;
+        this.itemCount = this.products.length;
+        if(this.itemCount > 0) this.itemsAvailable = true;
         this.loader.stop();
       },
       error => {

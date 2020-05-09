@@ -1,4 +1,4 @@
-<div class="scrolling-wrapper row">
+<div *ngIf="itemsAvailable" class="scrolling-wrapper row">
   <div *ngFor="let product of products" class="card shadow shadow-big" [routerLink]="['/product/product-detail',product.id]">
     <div>
       <img src="{{product.product_image}}" alt="" srcset="">
@@ -17,5 +17,12 @@
         <button class="btn btn-success">Add to Cart</button>
       </div>
     </div>
+  </div>
+</div>
+
+<div *ngIf="!itemsAvailable" class="card p-5 m-3 shadow shadow-lg">
+  <div class="">
+      <h6 class="text-center">No Product Available.</h6>
+      <button [routerLink]="['/product/products']"  class="btn btn-primary text-center btn-center">Continue Shopping </button>
   </div>
 </div>

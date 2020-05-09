@@ -6,6 +6,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
 import { OnetimeOtpVerifyComponent } from './onetime-otp-verify/onetime-otp-verify.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,13 @@ const routes: Routes = [
         component: VerifyOtpComponent,
         data: {
           title : "Verify OTP"
+        }
+      },
+      {
+        path : "contactUs",
+        component : ContactUsComponent,
+        data : {
+          title : "Contact Us"
         }
       },
       {

@@ -39,14 +39,10 @@ export class LoginComponent implements OnInit {
       this.loader.start();
       this.authService.login(loginData).subscribe(
         (success: any) => {
-          // console.log("this is success: " + JSON.stringify(success));
-
           localStorage.setItem("token", success.headers.get("Authorization"));
-          // console.log(localStorage.getItem('token'));
 
           this.router.navigateByUrl(`/farmer/dashboard/dashboard`);
           Swal.fire("Logged In","Welcome to Dashbord","success");
-          // alertFunctions.typeSuccess();
           this.loader.stop();
         },
         error => {
@@ -57,8 +53,6 @@ export class LoginComponent implements OnInit {
           if(error.status === 432){
             Swal.fire("Email is not verfied","Please verify your email","warning");
           }
-
-          // Swal.fire("Opps... Login Failed","Please provide correct credential","error");
           this.loader.stop();
         }
       );

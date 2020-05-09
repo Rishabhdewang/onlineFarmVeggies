@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
         (success: any) => {
           localStorage.setItem("email",registerData.email);
           this.router.navigateByUrl(`/auth/verifyonetimeotp`);
-          Swal.fire("Account Created,please verify your account","Please check your email","success");
+          Swal.fire("Account Created, please verify your account","Please check your email","success");
           this.loader.stop();
         },
         error => {

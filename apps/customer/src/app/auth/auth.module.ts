@@ -11,6 +11,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
 import { DataService } from '../shared/services/data.service';
 import { OnetimeOtpVerifyComponent } from './onetime-otp-verify/onetime-otp-verify.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { OnetimeOtpVerifyComponent } from './onetime-otp-verify/onetime-otp-veri
         ForgotPasswordComponent,
         ResetPasswordComponent,
         VerifyOtpComponent,
-        OnetimeOtpVerifyComponent
+        OnetimeOtpVerifyComponent,
+        ContactUsComponent
     ],
     providers : [DataService]
 })

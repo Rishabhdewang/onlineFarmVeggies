@@ -47,14 +47,12 @@ export class RegisterComponent implements OnInit {
       this.loader.start();
       this.authService.register(registerData).subscribe(
         (success: any) => {
-          this.router.navigateByUrl(`/farmer/auth/login`);
-          Swal.fire("Account Registered","Please login now","success");
+          localStorage.setItem("email",registerData.email);
+          this.router.navigateByUrl(`/farmer/auth/verifyonetimeotp`);
+          Swal.fire("Account Registered","Please verify your account, OTP sent to your email","success");
           this.loader.stop();
         },
         error => {
-          console.log(error);
-
-          Swal.fire("Opps... Register Failed","Please provide correct credential","error");
           this.loader.stop();
         }
       );
