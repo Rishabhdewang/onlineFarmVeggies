@@ -1,4 +1,4 @@
-<div *ngIf="itemsAvailable" class="scrolling-wrapper row">
+<div *ngIf="itemsAvailable" class="scrolling-wrapper container row">
   <div *ngFor="let product of products" class="card shadow shadow-big" [routerLink]="['/product/product-detail',product.id]">
     <div>
       <img src="{{product.product_image}}" alt="" srcset="">

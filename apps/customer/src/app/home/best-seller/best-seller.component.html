@@ -1,7 +1,7 @@
 <section *ngIf="isBestSeller">
   <h4 class="text-center mt-3 heading">Best Deals</h4>
 </section>
-<div class="scrolling-wrapper">
+<div class="scrolling-wrapper container">
   <div *ngFor="let bestSeller of bestSellers" class="card shadow shadow-big" [routerLink]="['/product/product-detail',bestSeller.id]">
     <div>
       <img src="{{bestSeller.product_image}}" alt="" srcset="">
