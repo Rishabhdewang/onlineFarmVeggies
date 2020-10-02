@@ -1,6 +1,6 @@
 # OnlineFarmVeggies
 
-This project was generated using [Nx](https://nx.dev) by vinod ,Rishabh ,Devang.
+This project was generated using [Nx](https://nx.dev) by Vinod ,Rishabh ,Devang.
 
 <p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png" width="450"></p>
 
